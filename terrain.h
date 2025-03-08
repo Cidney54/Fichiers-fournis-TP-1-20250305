@@ -43,18 +43,18 @@ int nb_aleatoire (int min, int max)
 //  Ecrire le prototype de la fonction 'terrain_generer_position_sortie' ici
 void terrain_generer_position_sortie(int sortie_ligne, int sortie_colonne){
 
-    srand((unsigned int) time(NULL));
-    rand();
+    srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
+    rand();                                 // ligne qui sert à genéré le chiffre aléatoire
 
-    int nbr_alt_1 = nb_aleatoire(0,9);
-    int nbr_alt_2 = nb_aleatoire(0,9);
+    int nbr_alt_1 = nb_aleatoire(0,9);      // variable définissant la première valeur aléatoire
+    int nbr_alt_2 = nb_aleatoire(0,9);      // variable définissant la première valeur aléatoire
 
-    sortie_ligne = nbr_alt_1;
-    sortie_colonne = nbr_alt_2;
-    int t_terrain[sortie_ligne][sortie_colonne] = {};
+    sortie_ligne = nbr_alt_1;               // définit la ligne de sortie
+    sortie_colonne = nbr_alt_2;             // définit la colonne de sortie
+    int t_terrain[sortie_ligne][sortie_colonne] = {};  //
 
     printf("%i %i", t_terrain[sortie_ligne][sortie_colonne]);
-    
+
 }
 /**
  * @brief Propose une position de depart aleatoire pour un terrain de dimensions NB_LIGNES x NB_COLONNES
@@ -68,6 +68,12 @@ void terrain_generer_position_sortie(int sortie_ligne, int sortie_colonne){
 //  Ecrire le prototype de la fonction 'terrain_generer_position_depart' ici
 
 void terrain_generer_position_depart(int destination_ligne, int destination_colonnes, int depart_ligne, int depart_colonne){
+
+    terrain_generer_position_sortie(destination_ligne,destination_colonnes);
+
+    srand((unsigned int) time(NULL));
+    rand();
+
 
 }
 /**
