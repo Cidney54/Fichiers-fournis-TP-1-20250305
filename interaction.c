@@ -25,6 +25,8 @@ void interaction_presenter_jeu() {
     printf("-La partie se termine si une des conditions suivantes est respecté: \n");
     printf("1. Vous avez trouvez la sortie\n");
     printf("2. Vous avez brulé tout votre carburant avant d'atteindre la sortie\n");
+
+   
 }
 
 // Definir la fonction 'interaction_afficher_options' ici
@@ -38,7 +40,3 @@ void interaction_presenter_jeu() {
 // Definir la fonction 'interaction_afficher_victoire' ici
 
 // Definir la fonction 'interaction_verifier_choix_action' ici
-
-int main(){
-    interaction_presenter_jeu();
-}

@@ -9,6 +9,9 @@
 //  ***********************************
 // Definir la fonction 'terrain_generer_position_sortie' ici
 
+#include "terrain.h"
+
+
 // Definir la fonction 'terrain_generer_position_depart' ici
 
 // Definir la fonction 'terrain_contient' ici
@@ -23,5 +26,12 @@
 
 // Definir la fonction 'terrain_afficher' ici
 
+int main(){
 
+    int a ;
+    int b ;
+
+    terrain_generer_position_sortie(a,b);
+
+}
 

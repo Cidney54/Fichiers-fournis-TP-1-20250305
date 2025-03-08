@@ -4,7 +4,9 @@
 
 #ifndef CODE_TERRAIN_H
 #define CODE_TERRAIN_H
-
+#include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
 //  taille du terrain
 #define NB_LIGNES 10
 #define NB_COLONNES 10
@@ -22,9 +24,15 @@ typedef int t_terrain[NB_LIGNES][NB_COLONNES];
 //  Quantite maximale de carburant par case de terrain
 #define STATION_MAX_CARBURANT 9
 
+int nb_aleatoire (int min, int max)
+{
+    return min + (int) (rand() / (RAND_MAX + 0.001) * (max - min + 1) );
+}
 //  ************************************
 //  Declarations des fonctions publiques
 //  ************************************
+
+
 
 /**
  * @brief Propose un position de sortie aleatoire pour un terrain de dimensions NB_LIGNES x NB_COLONNES
@@ -33,7 +41,21 @@ typedef int t_terrain[NB_LIGNES][NB_COLONNES];
  * @param sortie_colonne l'adresse ou deposer une colonne de sortie aleatoire
  */
 //  Ecrire le prototype de la fonction 'terrain_generer_position_sortie' ici
+void terrain_generer_position_sortie(int sortie_ligne, int sortie_colonne){
 
+    srand((unsigned int) time(NULL));
+    rand();
+
+    int nbr_alt_1 = nb_aleatoire(0,9);
+    int nbr_alt_2 = nb_aleatoire(0,9);
+
+    sortie_ligne = nbr_alt_1;
+    sortie_colonne = nbr_alt_2;
+    int t_terrain[sortie_ligne][sortie_colonne] = {};
+
+    printf("%i %i", t_terrain[sortie_ligne][sortie_colonne]);
+    
+}
 /**
  * @brief Propose une position de depart aleatoire pour un terrain de dimensions NB_LIGNES x NB_COLONNES
  * @name terrain_generer_position_depart
@@ -45,6 +67,9 @@ typedef int t_terrain[NB_LIGNES][NB_COLONNES];
  */
 //  Ecrire le prototype de la fonction 'terrain_generer_position_depart' ici
 
+void terrain_generer_position_depart(int destination_ligne, int destination_colonnes, int depart_ligne, int depart_colonne){
+
+}
 /**
  * @brief Verifie qu'une position se trouve bien dans les limites du terrain de NB_LIGNES x NB_COLONNES
  * @name terrain_contient
@@ -53,6 +78,9 @@ typedef int t_terrain[NB_LIGNES][NB_COLONNES];
  * @return true si la position se trouve a l'interieur du terrain, false sinon
  */
 //  Ecrire le prototype de la fonction 'terrain_contient' ici
+void terrain_contient(){
+
+}
 
 /**
  * @brief Retourne la quantite de carburant qui se trouve sur une case donnee du terrain
