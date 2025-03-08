@@ -28,10 +28,24 @@
 
 int main(){
 
-    int a ;
-    int b ;
+    srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
+    rand();
 
-    terrain_generer_position_sortie(a,b);
+
+    int i = 0;
+    int a =  nb_aleatoire(0,9);
+    int b =  nb_aleatoire(0,9);
+    int c =  nb_aleatoire(0,9);
+    int d =  nb_aleatoire(0,9);
+
+    while(a == c ){
+
+         a =  nb_aleatoire(0,9);
+         c =  nb_aleatoire(0,9);
+    }
+
+        // terrain_generer_position_sortie(a,b);
+    terrain_generer_position_depart(a,b,c,d);
 
 }
 
