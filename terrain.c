@@ -31,6 +31,8 @@ int main(){
     srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
     rand();
 
+    int terrain[NB_LIGNES][NB_COLONNES] = {};
+
 int nombre_alt = nb_aleatoire(0,9);
 
     int a = nombre_alt;
@@ -51,7 +53,10 @@ int nombre_alt = nb_aleatoire(0,9);
     }
 
     //terrain_generer_position_depart(a,b,c,d);
-    terrain_contient(ligne,colone);
+    //terrain_contient(ligne,colone);
+    terrain_get_carburant(terrain,1,2);
+
+
 
 }
 

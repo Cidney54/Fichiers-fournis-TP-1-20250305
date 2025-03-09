@@ -12,6 +12,9 @@
 #define NB_LIGNES 10
 #define NB_COLONNES 10
 
+
+
+
 //  *****************************
 //  Definitions des types publics
 //  *****************************
@@ -130,7 +133,33 @@ int terrain_contient(int position_ligne, int position_colonne){
  * @return la quantite de carburant presente a cette position
  */
 //  Ecrire le prototype de la fonction 'terrain_get_carburant' ici
+int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int position_colonne){
 
+    srand((unsigned int) time(NULL));
+    rand();
+    int carburant, nbr_alt;
+
+
+
+
+    for(position_ligne = 0; position_ligne < NB_LIGNES; position_ligne++){
+        for (position_colonne = 0; position_colonne < NB_COLONNES; position_colonne++){
+
+            nbr_alt = nb_aleatoire(0,9);
+            carburant = nbr_alt;
+            terrain[position_ligne][position_colonne] = carburant;
+            printf("le carbutant à la ligne %i et la colonne %i est %i\n",position_ligne,position_colonne,carburant);
+
+        }
+    }
+
+
+    return carburant;
+
+
+
+
+}
 
 /**
  * @brief Initialise la quantite de carburant sur une case du terrain
