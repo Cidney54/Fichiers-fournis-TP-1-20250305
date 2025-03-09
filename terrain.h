@@ -135,25 +135,11 @@ int terrain_contient(int position_ligne, int position_colonne){
 //  Ecrire le prototype de la fonction 'terrain_get_carburant' ici
 int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int position_colonne){
 
-    srand((unsigned int) time(NULL));
-    rand();
-    int carburant, nbr_alt;
+    int carburant;
 
 
-
-
-    for(position_ligne = 0; position_ligne < NB_LIGNES; position_ligne++){
-        for (position_colonne = 0; position_colonne < NB_COLONNES; position_colonne++){
-
-            nbr_alt = nb_aleatoire(0,9);
-            carburant = nbr_alt;
-            terrain[position_ligne][position_colonne] = carburant;
-            printf("le carbutant à la ligne %i et la colonne %i est %i\n",position_ligne,position_colonne,carburant);
-
-        }
-    }
-
-
+    terrain[position_ligne][position_colonne] = carburant;
+    printf("%i\n", carburant);
     return carburant;
 
 
@@ -170,6 +156,26 @@ int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lign
  * @param carburant le carburant qui se trouvera dans la case
  */
 //  Ecrire le prototype de la fonction 'terrain_set_carburant' ici
+void terrain_set_carburant(int terrain[NB_LIGNES][NB_COLONNES],int position_ligne,int position_colonne, int carburant){
+
+    srand((unsigned int) time(NULL));
+    rand();
+    int nbr_alt;
+
+
+
+
+    for(position_ligne = 0; position_ligne < NB_LIGNES; position_ligne++){
+        for (position_colonne = 0; position_colonne < NB_COLONNES; position_colonne++){
+
+            nbr_alt = nb_aleatoire(0,9);
+            carburant = nbr_alt;
+            terrain[position_ligne][position_colonne] = carburant;
+            printf("le carbutant à la ligne %i et la colonne %i est %i\n",position_ligne,position_colonne,carburant);
+
+        }
+    }
+}
 
 /**
  * @brief Initialise toutes les cases d'un terrain a 0 (zero)
@@ -177,6 +183,20 @@ int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lign
  * @param terrain le terrain dont on veut initialiser les cases
  */
 //  Ecrire le prototype de la fonction 'terrain_init' ici
+
+void terrain_init(int terrain[NB_LIGNES][NB_COLONNES]){
+
+    int i,j;
+    int valeur = 0;
+
+    for(i = 0; i < NB_LIGNES; i++){
+        for(j = 0; j < NB_COLONNES; j++){
+            terrain[i][j] = valeur;
+            printf("à la ligne %i et la colonne %i est %i\n",i,j,terrain[i][j]);
+        }
+    }
+
+}
 
 /**
  * @brief Cree aleatoirement les stations de gas sur le terrain. La quantite_globale des quantites de gas des stations est passee en parametre.

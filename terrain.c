@@ -54,7 +54,7 @@ int nombre_alt = nb_aleatoire(0,9);
 
     //terrain_generer_position_depart(a,b,c,d);
     //terrain_contient(ligne,colone);
-    terrain_get_carburant(terrain,1,2);
+    terrain_init(terrain);
 
 
 
