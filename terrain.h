@@ -7,6 +7,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <curses.h>
 //  taille du terrain
 #define NB_LIGNES 10
 #define NB_COLONNES 10
@@ -46,11 +47,11 @@ void terrain_generer_position_sortie(int sortie_ligne, int sortie_colonne){
     srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
     rand();                                 // ligne qui sert à genéré le chiffre aléatoire
 
-    //int nbr_alt_1 = nb_aleatoire(0,9);      // variable définissant la première valeur aléatoire
-    //nt nbr_alt_2 = nb_aleatoire(0,9);      // variable définissant la première valeur aléatoire
+    int nbr_alt_1 = nb_aleatoire(0,9);      // variable définissant la première valeur aléatoire
+    int nbr_alt_2 = nb_aleatoire(0,9);      // variable définissant la première valeur aléatoire
 
-   // sortie_ligne = nbr_alt_1;               // définit la ligne de sortie
-    //sortie_colonne = nbr_alt_2;             // définit la colonne de sortie
+    sortie_ligne = nbr_alt_1;               // définit la ligne de sortie
+    sortie_colonne = nbr_alt_2;             // définit la colonne de sortie
     int t_terrain[sortie_ligne][sortie_colonne] = {};  //
 
     printf(" la ligne de sortie est:%i\n la colonne de sortie est: %i\n", t_terrain[sortie_ligne][sortie_colonne]);
@@ -71,8 +72,8 @@ void terrain_generer_position_depart(int destination_ligne, int destination_colo
 
     terrain_generer_position_sortie(destination_ligne,destination_colonnes);
 
-    srand((unsigned int) time(NULL));
-    rand();
+    //srand((unsigned int) time(NULL));
+    //rand();
 
    // int nbr_alt_1 = nb_aleatoire(0,9);      // variable définissant la première valeur aléatoire
     //int nbr_alt_2 = nb_aleatoire(0,9);
@@ -92,9 +93,33 @@ void terrain_generer_position_depart(int destination_ligne, int destination_colo
  * @return true si la position se trouve a l'interieur du terrain, false sinon
  */
 //  Ecrire le prototype de la fonction 'terrain_contient' ici
-void terrain_contient(){
+int terrain_contient(int position_ligne, int position_colonne){
+
+    int ligne_sortie;
+    int colonne_sortie;
+    int ligne_entrée;
+    int colonne_entree;
+
+    terrain_generer_position_depart(ligne_sortie,colonne_sortie,ligne_entrée,colonne_entree);
+
+    position_ligne = 9;
+    position_colonne = 9;
+
+    if(ligne_sortie < position_ligne && ligne_entrée < position_ligne){
+        printf("True\n");
+        return TRUE;
+    }
+    if(colonne_sortie < position_colonne && colonne_entree < position_colonne){
+        printf("True\n");
+        return TRUE;
+    }
+
+    printf("False\n");
+    return FALSE;
 
 }
+
+
 
 /**
  * @brief Retourne la quantite de carburant qui se trouve sur une case donnee du terrain
@@ -105,6 +130,7 @@ void terrain_contient(){
  * @return la quantite de carburant presente a cette position
  */
 //  Ecrire le prototype de la fonction 'terrain_get_carburant' ici
+
 
 /**
  * @brief Initialise la quantite de carburant sur une case du terrain
