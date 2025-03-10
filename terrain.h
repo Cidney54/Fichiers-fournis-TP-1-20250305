@@ -84,7 +84,7 @@ void terrain_generer_position_depart(int destination_ligne, int destination_colo
     //depart_ligne = nbr_alt_1;
     //depart_colonne = nbr_alt_2;
     int t_terrain[depart_ligne][depart_colonne];
-    printf("la ligne de départ est %i\n la colonne de depart est %i",t_terrain[depart_ligne][depart_colonne]);
+    printf("la ligne de départ est %i\n la colonne de depart est %i\n",depart_ligne,depart_colonne);
 
 
 }

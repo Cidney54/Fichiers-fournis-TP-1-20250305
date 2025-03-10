@@ -52,9 +52,9 @@ int nombre_alt = nb_aleatoire(0,9);
         d =  nb_aleatoire(0,9);
     }
 
-    //terrain_generer_position_depart(a,b,c,d);
+    terrain_generer_position_depart(a,b,c,d);
     //terrain_contient(ligne,colone);
-    terrain_init(terrain);
+    //terrain_init(terrain);
 
 
 
