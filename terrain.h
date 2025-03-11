@@ -116,7 +116,7 @@ void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int q
  */
 //  Ecrire le prototype de la fonction 'terrain_afficher' ici
 
-void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES],int *courante_ligne, int *courante_colonne,
+void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES],int courante_ligne, int courante_colonne,
     int destination_ligne,int destination_colonne);
 
 #endif //CODE_TERRAIN_H
