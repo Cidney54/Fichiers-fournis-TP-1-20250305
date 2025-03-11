@@ -9,6 +9,7 @@
 #define COUT_DEPLACEMENT_VOISIN     1
 #define BONUS_CARBURANT             5
 #define TOTAL_CARBURANT_NIVEAU_1    100
+#include "terrain.h"
 
 //  *****************************
 //  Definitions des types publics
@@ -65,6 +66,8 @@ typedef enum {
  * @param destination_colonne l'adresse de la colonne de la case a atteindre
  */
 //  Ecrire le prototype de la fonction 'jeu_init' ici
+void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int *joueur_colonne, int *joueur_carburant,
+    int *destination_ligne, int *destination_colonne);
 
 /**
  * @brief Affiche une direction en toutes lettres
