@@ -6,6 +6,7 @@
 #include <stdlib.h>
 // #include <couleur.h>
 #include "terrain.h"
+#include <stdbool.h>
 
 //  ***********************************
 //  Definitions des fonctions publiques
@@ -44,10 +45,10 @@ int terrain_contient(int position_ligne, int position_colonne) {
     /* Vérifier si les coordonnées sont à l'extérieur de l'intervalle x[0,9] et y[0,9]. */
     if (position_ligne < 0 || position_colonne < 0 || position_ligne >= NB_LIGNES || position_colonne >= NB_COLONNES) {
 
-        return 0;
+        return false;
     }
     else {
-        return 1;
+        return true;
     }
 }
 

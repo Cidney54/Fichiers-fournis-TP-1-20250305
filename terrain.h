@@ -26,8 +26,6 @@ typedef int t_terrain[NB_LIGNES][NB_COLONNES];
 //  Declarations des fonctions publiques
 //  ************************************
 
-
-
 /**
  * @brief Propose un position de sortie aleatoire pour un terrain de dimensions NB_LIGNES x NB_COLONNES
  * @name terrain_generer_position_sortie
