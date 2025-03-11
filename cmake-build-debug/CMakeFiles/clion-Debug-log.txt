@@ -1,10 +1,6 @@
-/Users/cidneyberlypetitsaint/Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Users/cidneyberlypetitsaint/Applications/CLion.app/Contents/bin/ninja/mac/x64/ninja -G Ninja -S "/Users/cidneyberlypetitsaint/Desktop/Fichiers fournis TP 1-20250305" -B "/Users/cidneyberlypetitsaint/Desktop/Fichiers fournis TP 1-20250305/cmake-build-debug"
--- The C compiler identification is AppleClang 16.0.0.16000026
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Configuring done (2.2s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/cidneyberlypetitsaint/Desktop/Fichiers fournis TP 1-20250305/cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\willb\OneDrive\Documents\GitHub\Fichiers-fournis-TP-1-20250305 -B C:\Users\willb\OneDrive\Documents\GitHub\Fichiers-fournis-TP-1-20250305\cmake-build-debug
+CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  CMake 3.30 or higher is required.  You are running version 3.29.6
+
+
+-- Configuring incomplete, errors occurred!

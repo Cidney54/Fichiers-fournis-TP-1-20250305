@@ -8,7 +8,6 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <curses.h>
 //  taille du terrain
 #define NB_LIGNES 10
 #define NB_COLONNES 10
