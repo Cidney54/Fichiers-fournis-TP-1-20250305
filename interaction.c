@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <couleur.h>
+#include <jeu.h>
+#include "interaction.h"
+
 
 #define NB_LIGNES 10
 #define NB_COLONNES 10
@@ -72,9 +75,6 @@ void interaction_afficher_option(int carburant) {
 
 int interacion_demander_action(int carburant) {
 
-    int action_deplacer = 1;
-    int action_acheter_bonus = 2;
-    int action_quitter = 3;
     int i;
 
 
@@ -85,15 +85,15 @@ int interacion_demander_action(int carburant) {
 
         if (i == 1) {
             printf("déplacement\n");
-            return action_deplacer;
+            return ACTION_DEPLACER;
         }
         if (i == 2) {
             printf("achat bonus\n");
-            return action_acheter_bonus;
+            return ACTION_ACHETER_BONUS;
         }
         if (i == 3) {
             printf("quitter\n");
-            return action_quitter;
+            return ACTION_QUITTER;
         }
 
     } while (i > 3 || i < 0);
@@ -115,44 +115,38 @@ int interacion_demander_action(int carburant) {
 //  Ecrire le prototype de la fonction 'interaction_demander_direction_deplacement' ici
 int interaction_demander_direction_deplacement() {
 
-    int DIRECTION_ERRONEE = -1;
-    int DIRECTION_DROITE = 1;
-    int DIRECTION_GAUCHE = 2;
-    int DIRECTION_HAUT = 3;
-    int DIRECTION_BAS = 4;
-    int i = 0;
+    int i;
 
+    printf("veuillez choisir une direct: \n");
+    printf("1. droite\n");
+    printf("2. gauche\n");
+    printf("3. haut\n");
+    printf("4. bas\n");
+    scanf("%i", &i);
 
-    while (i <= 0 || i > 4) {
-
-
-        printf("veuillez choisir une direct: \n");
-        printf("1. droite\n");
-        printf("2. gauche\n");
-        printf("3. haut\n");
-        printf("4. bas\n");
-        scanf("%i", &i);
-
-        if (i == 1) {
-            printf("droite\n");
-            return DIRECTION_DROITE;
-        }
-        if (i == 2) {
-            printf("gauche\n");
-            return DIRECTION_GAUCHE;
-        }
-        if (i == 3) {
-            printf("haut\n");
-            return DIRECTION_HAUT;
-        }
-        if (i == 4) {
-            printf("bas\n");
-            return DIRECTION_BAS;
-        }
+    if (i == 1) {
+        printf("droite\n");
+        return DIRECTION_DROITE;
     }
-
-
+    if (i == 2) {
+        printf("gauche\n");
+        return DIRECTION_GAUCHE;
+    }
+    if (i == 3) {
+        printf("haut\n");
+        return DIRECTION_HAUT;
+    }
+    if (i == 4) {
+        printf("bas\n");
+        return DIRECTION_BAS;
+    }
+    if (i > 4 || i <= 0) {
+        printf("Erronee");
+        return DIRECTION_ERRONEE;
+    }
 }
+
+
 
 // Definir la fonction 'interaction_afficher_echec' ici
 
@@ -182,9 +176,37 @@ void interaction_afficher_victoire(int carburant) {
 
 // Definir la fonction 'interaction_verifier_choix_action' ici
 
+/**
+ * @brief Verifie que l'action choisie par le joueur est correcte.
+i * @name interaction_verifier_choix_actionnt main() {
+ * @param action l'action choisie par le joueur
+ * @param carburant la quantite de carburant du joueur
+ * @return action si elle est correcte, ACTION_INVALIDE sinon
+} */
+
+int interaction_verifier_choix_action(int action, int carburant) {
+
+    scanf("%i", &action);
+    if (action == ACTION_DEPLACER) {
+        printf("deplacement");
+        return ACTION_DEPLACER;
+    }
+    if (action == ACTION_ACHETER_BONUS) {
+        printf("achat bonus");
+        return ACTION_ACHETER_BONUS;
+    }
+    if (action == ACTION_QUITTER) {
+        printf("quitte");
+        return ACTION_QUITTER;
+    }
+    if (action != ACTION_DEPLACER, ACTION_ACHETER_BONUS, ACTION_QUITTER) {
+        printf("invalide");
+        return ACTION_INVALIDE;
+    }
+}
+
 
 int main() {
 
-    interaction_demander_direction_deplacement();
 
 }

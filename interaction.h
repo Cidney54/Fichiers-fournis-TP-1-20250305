@@ -23,23 +23,8 @@ typedef enum {
   */
 //  Ecrire le prototype de la fonction 'interaction_presenter_jeu' ici
 
-void interaction_presenter_jeu() {
+void interaction_presenter_jeu();
 
-    printf("Bienvenue dans le jeu\n");
-    printf("Dans ce jeu vous serez dans un véhicule contenant 2 litres de carburant initialement\n ");
-    printf("vous allez être projeté dans un labyrinth composé de cases et vous aurez pour but de trouver la sortie\n ");
-    printf("Votre position sera affiché par un signe X\n");
-    printf("Les règles du jeu sont les suivantes: \n ");
-    printf("\n");
-    printf("-vous avez quatre déplacement disponible ( haut, bas, droite, gauche\n");
-    printf("-À chaque déplacement vous perdez un litre de carburant\n");
-    printf("-À chaque déplacement vous avez la posibilité de gagner entre 0 à 9 litre de carburant dépendamment de la case que vous tombez\n");
-    printf("-Après s'être déplacé d'une case celle-ci est réinitialiser à zéro\n");
-    printf("-La partie se termine si une des conditions suivantes est respecté: \n");
-    printf("1. Vous avez trouvez la sortie\n");
-    printf("2. Vous avez brulé tout votre carburant avant d'atteindre la sortie\n");
-
-}
 
 
 /**
@@ -50,7 +35,7 @@ void interaction_presenter_jeu() {
  */
 //  Ecrire le prototype de la fonction 'interaction_afficher_options' ici
 
-void interaction_afficher_option(int carburant) {}
+void interaction_afficher_option(int carburant);
 
 /**
  * @brief Demande un choix a l'utilisateur sur une des options du menu
