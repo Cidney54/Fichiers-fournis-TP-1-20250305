@@ -3,6 +3,8 @@
 //
 #include <stdlib.h>
 #include <stdio.h>
+#include <couleur.h>
+
 #ifndef CODE_INTERACTION_H
 #define CODE_INTERACTION_H
 
@@ -21,7 +23,7 @@ typedef enum {
   */
 //  Ecrire le prototype de la fonction 'interaction_presenter_jeu' ici
 
-void interaction_presenter_jeu(){
+void interaction_presenter_jeu() {
 
     printf("Bienvenue dans le jeu\n");
     printf("Dans ce jeu vous serez dans un véhicule contenant 2 litres de carburant initialement\n ");
@@ -48,21 +50,7 @@ void interaction_presenter_jeu(){
  */
 //  Ecrire le prototype de la fonction 'interaction_afficher_options' ici
 
-void interaction_afficher_option(int carburant){
-
-    carburant = 2;
-
-    printf("Voici vos options: \n");
-    printf("1.Déplacer\n");
-    printf("2.Acheter bonus\n");
-    printf("3.Quitter\n");
-
-
-
-
-
-
-}
+void interaction_afficher_option(int carburant) {}
 
 /**
  * @brief Demande un choix a l'utilisateur sur une des options du menu
@@ -72,11 +60,7 @@ void interaction_afficher_option(int carburant){
  */
 //  Ecrire le prototype de la fonction 'interaction_demander_action' ici
 
-int interaction_demander_action(int carburant){
-
-    interaction_afficher_option(carburant);
-
-}
+int interaction_demander_action(int carburant) {}
 
 /**
  * @brief Demande une direction de deplacement au joueur.
@@ -85,12 +69,14 @@ int interaction_demander_action(int carburant){
  * DIRECTION_DROITE, DIRECTION_BAS, DIRECTION_HAUT ou DIRECTION_GAUCHE selon le choix du joueur, sinon
  */
 //  Ecrire le prototype de la fonction 'interaction_demander_direction_deplacement' ici
+int interaction_demander_direction_deplacement(void);
 
 /**
  * @brief Affiche un message d'echec de la mission.
  * @name interaction_afficher_echec
  */
 //  Ecrire le prototype de la fonction 'interaction_afficher_echec' ici
+void interaction_affiche_echec();
 
 /**
  * @brief Affiche un message de victoire de la mission ainsi que la quantite de
@@ -99,6 +85,7 @@ int interaction_demander_action(int carburant){
  * @param carburant la quantite de carburant du joueur
  */
 //  Ecrire le prototype de la fonction 'interaction_afficher_victoire' ici
+void interaction_afficher_victoire();
 
 /**
  * @brief Verifie que l'action choisie par le joueur est correcte.

@@ -26,7 +26,7 @@
 
 // Definir la fonction 'terrain_afficher' ici
 
-int main(){
+/*int main(){
 
     srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
     rand();
@@ -53,10 +53,10 @@ int nombre_alt = nb_aleatoire(0,9);
     }
 
     terrain_generer_position_depart(a,b,c,d);
-    //terrain_contient(ligne,colone);
-    //terrain_init(terrain);
+    terrain_creer_stations_carburant(terrain,90);
 
 
 
-}
+
+}*/
 

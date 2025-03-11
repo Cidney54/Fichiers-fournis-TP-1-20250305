@@ -14,3 +14,4 @@ void couleur_set(int style, int couleur_avant_plan, int couleur_arriere_plan) {
 void couleur_reset(void) {
     printf("%s0m", ESCAPE);
 }
+

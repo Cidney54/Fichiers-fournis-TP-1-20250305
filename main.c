@@ -1,5 +1,7 @@
 
-
+#include "stdio.h"
+#include "stdlib.h"
+#include "time.h"
 //  *********************************************
 //  Declarations des fonctions autres que le main
 //  *********************************************
@@ -21,7 +23,9 @@
 //  ******************************
 /*
 int main(void) {
-    srand(time(NULL));
+    srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
+    rand();                                 // ligne qui sert à genéré le chiffre aléatoire
+
 
     //  Les donnees du jeu : terrain, joueur, case de sortie
     t_terrain terrain;
@@ -43,5 +47,4 @@ int main(void) {
 //  ********************************************
 //  Definitions des fonctions autres que le main
 //  ********************************************
-// Definir la fonction 'jeu_executer' ici
-*/
+// Definir la fonction 'jeu_executer' ici */
