@@ -207,6 +207,6 @@ int interaction_verifier_choix_action(int action, int carburant) {
 
 
 int main() {
-
+    
 
 }
