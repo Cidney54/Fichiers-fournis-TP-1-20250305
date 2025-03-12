@@ -38,16 +38,36 @@ void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int joueur_c
 void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int *joueur_colonne, int *joueur_carburant,
     int *destination_ligne, int *destination_colonne) {
 
+    /* Initialiser les variables. */
+    int sortie_ligne; // Ligne de destination de sortie.
+    int sortie_colonne; // Colonne de desitination de sortie.
+    int depart_ligne; // Ligne de départ du joueur.
+    int depart_colonne; // Colonne de départ du joueur.
+
+    /* Générer les stations de carburant sur le terrrain. */
     terrain_creer_stations_carburant(terrain,TOTAL_CARBURANT_NIVEAU_1);
-    do {
-        terrain_generer_position_sortie(*destination_ligne,*destination_colonne);
-    } while (terrain[*destination_ligne][*destination_colonne] == 0);
 
+    /* Boucle afin d'assurer que la sortie ne se retrouve pas sur une station de carburant. */
     do {
-        terrain_generer_position_depart(*destination_ligne,*destination_colonne,*joueur_ligne,*joueur_colonne);
-    } while (terrain[*joueur_ligne][*joueur_colonne]);
+        terrain_generer_position_sortie(&sortie_ligne,&sortie_colonne); // Générer la position de sortie.
+    } while (terrain[sortie_ligne][sortie_colonne] != 0);
 
+    /* Boucle afin d'assurer que la position de départ ne se retrouve pas sur une station de carburant. */
+    do {
+        terrain_generer_position_depart(sortie_ligne,sortie_colonne,&depart_ligne,&depart_colonne); // Générer la position de départ.
+    } while (terrain[depart_ligne][depart_colonne] != 0);
+
+    /* Enregistrer les coordonnées de sortie et de départ dans les paramètres de la fonction. */
+    *joueur_ligne = sortie_ligne;
+    *joueur_colonne = sortie_colonne;
+    *destination_ligne = depart_ligne;
+    *destination_colonne = depart_colonne;
+
+    /* Afficher le terrain à l'utilisateur. */
     terrain_afficher(terrain,*joueur_ligne,*joueur_ligne,*destination_ligne,*destination_colonne);
+
+    /* Afficher les options et le carburant disponible à l'utilisateur. */
+    interaction_afficher_option(*joueur_carburant);
 }
 
 // Definir la fonction 'jeu_afficher_direction' ici
