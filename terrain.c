@@ -3,15 +3,12 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
 // #include <couleur.h>
 #include "terrain.h"
 #include <stdbool.h>
-#include "time.h"
+#include "util.h"
 
-int nb_aleatoire(int min, int max) {
-    return min + (int) (rand() / (RAND_MAX + 0.001) * (max - min + 1));
-}
+
 
 //  ***********************************
 //  Definitions des fonctions publiques

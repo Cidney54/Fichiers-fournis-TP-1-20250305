@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include "terrain.h"
 
 //  ***********************************
 //  Definitions des fonctions publiques

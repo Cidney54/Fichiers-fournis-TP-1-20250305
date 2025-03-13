@@ -211,5 +211,5 @@ int interaction_verifier_choix_action(int action, int carburant) {
 
 
 int main() {
-    interaction_verifier_choix_action(2, 2);
+    printf("hello world");
 }
