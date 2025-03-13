@@ -3,7 +3,6 @@
 //
 #include <interaction.h>
 #include <terrain.h>
-
 #include <jeu.h>
 
 //  ***********************************
@@ -21,12 +20,12 @@
  */
 void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int joueur_carburant,
                               int terrain[NB_LIGNES][NB_COLONNES]) {
-    terrain_set_carburant(terrain,joueur_ligne,joueur_colonne,joueur_carburant);
+    terrain_set_carburant(terrain, joueur_ligne, joueur_colonne, joueur_carburant);
 
-    int i,j;
-    while(joueur_ligne && joueur_colonne == terrain[i][j]){
+    int i, j;
+    while (joueur_ligne && joueur_colonne == terrain[i][j]) {
 
-        joueur_carburant +=
+        joueur_carburant += 0;
     }
 
 
@@ -36,7 +35,7 @@ void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int joueur_c
 // Definir la fonction 'jeu_init' ici
 
 void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int *joueur_colonne, int *joueur_carburant,
-    int *destination_ligne, int *destination_colonne) {
+              int *destination_ligne, int *destination_colonne) {
 
     /* Initialiser les variables. */
     int sortie_ligne; // Ligne de destination de sortie.
@@ -45,16 +44,17 @@ void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int *joueu
     int depart_colonne; // Colonne de départ du joueur.
 
     /* Générer les stations de carburant sur le terrrain. */
-    terrain_creer_stations_carburant(terrain,TOTAL_CARBURANT_NIVEAU_1);
+    terrain_creer_stations_carburant(terrain, TOTAL_CARBURANT_NIVEAU_1);
 
     /* Boucle afin d'assurer que la sortie ne se retrouve pas sur une station de carburant. */
     do {
-        terrain_generer_position_sortie(&sortie_ligne,&sortie_colonne); // Générer la position de sortie.
+        terrain_generer_position_sortie(&sortie_ligne, &sortie_colonne); // Générer la position de sortie.
     } while (terrain[sortie_ligne][sortie_colonne] != 0);
 
     /* Boucle afin d'assurer que la position de départ ne se retrouve pas sur une station de carburant. */
     do {
-        terrain_generer_position_depart(sortie_ligne,sortie_colonne,&depart_ligne,&depart_colonne); // Générer la position de départ.
+        terrain_generer_position_depart(sortie_ligne, sortie_colonne, &depart_ligne,
+                                        &depart_colonne); // Générer la position de départ.
     } while (terrain[depart_ligne][depart_colonne] != 0);
 
     /* Enregistrer les coordonnées de sortie et de départ dans les paramètres de la fonction. */
@@ -64,7 +64,7 @@ void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int *joueu
     *destination_colonne = depart_colonne;
 
     /* Afficher le terrain à l'utilisateur. */
-    terrain_afficher(terrain,*joueur_ligne,*joueur_ligne,*destination_ligne,*destination_colonne);
+    terrain_afficher(terrain, joueur_ligne, joueur_ligne, *destination_ligne, *destination_colonne);
 
     /* Afficher les options et le carburant disponible à l'utilisateur. */
     interaction_afficher_option(*joueur_carburant);

@@ -45,7 +45,7 @@ void interaction_afficher_option(int carburant);
  */
 //  Ecrire le prototype de la fonction 'interaction_demander_action' ici
 
-int interaction_demander_action(int carburant) {}
+int interaction_demander_action(int carburant);
 
 /**
  * @brief Demande une direction de deplacement au joueur.
@@ -70,7 +70,7 @@ void interaction_affiche_echec();
  * @param carburant la quantite de carburant du joueur
  */
 //  Ecrire le prototype de la fonction 'interaction_afficher_victoire' ici
-void interaction_afficher_victoire();
+void interaction_afficher_victoire(int carburant);
 
 /**
  * @brief Verifie que l'action choisie par le joueur est correcte.

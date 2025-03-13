@@ -98,6 +98,8 @@ int interacion_demander_action(int carburant) {
 
     } while (i > 3 || i < 0);
 
+    return ACTION_INVALIDE;
+
 }
 
 
@@ -144,6 +146,8 @@ int interaction_demander_direction_deplacement() {
         printf("Erronee");
         return DIRECTION_ERRONEE;
     }
+
+    return DIRECTION_ERRONEE;
 }
 
 
@@ -199,14 +203,13 @@ int interaction_verifier_choix_action(int action, int carburant) {
         printf("quitte");
         return ACTION_QUITTER;
     }
-    if (action != ACTION_DEPLACER, ACTION_ACHETER_BONUS, ACTION_QUITTER) {
-        printf("invalide");
-        return ACTION_INVALIDE;
-    }
+    // if (action != ACTION_DEPLACER, ACTION_ACHETER_BONUS, ACTION_QUITTER) {
+    //   printf("invalide");
+    return ACTION_INVALIDE;
+    //}
 }
 
 
 int main() {
-    
-
+    interaction_verifier_choix_action(2, 2);
 }

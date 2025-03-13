@@ -1,3 +1,0 @@
-C:/Labos-INF155/TP1/util.c/cmake-build-debug/CMakeFiles/util_c.dir
-C:/Labos-INF155/TP1/util.c/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Labos-INF155/TP1/util.c/cmake-build-debug/CMakeFiles/rebuild_cache.dir

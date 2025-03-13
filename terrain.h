@@ -34,7 +34,7 @@ typedef int t_terrain[NB_LIGNES][NB_COLONNES];
  */
 //  Ecrire le prototype de la fonction 'terrain_generer_position_sortie' ici
 
-void terrain_generer_position_sortie(int *sortie_ligne,int *sortie_colonne);
+void terrain_generer_position_sortie(int *sortie_ligne, int *sortie_colonne);
 
 /**
  * @brief Propose une position de depart aleatoire pour un terrain de dimensions NB_LIGNES x NB_COLONNES
@@ -47,7 +47,8 @@ void terrain_generer_position_sortie(int *sortie_ligne,int *sortie_colonne);
  */
 //  Ecrire le prototype de la fonction 'terrain_generer_position_depart' ici
 
-void terrain_generer_position_depart(int destination_ligne, int destination_colonne, int *depart_ligne, int *depart_colonne);
+void
+terrain_generer_position_depart(int destination_ligne, int destination_colonne, int *depart_ligne, int *depart_colonne);
 
 /**
  * @brief Verifie qu'une position se trouve bien dans les limites du terrain de NB_LIGNES x NB_COLONNES
@@ -83,7 +84,7 @@ int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lign
 //  Ecrire le prototype de la fonction 'terrain_set_carburant' ici
 
 void terrain_set_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int position_colonne,
-    int carburant);
+                           int carburant);
 
 /**
  * @brief Initialise toutes les cases d'un terrain a 0 (zero)
@@ -116,7 +117,7 @@ void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int q
  */
 //  Ecrire le prototype de la fonction 'terrain_afficher' ici
 
-void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES],int courante_ligne, int courante_colonne,
-    int destination_ligne,int destination_colonne);
+void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES], int *courante_ligne, int *courante_colonne,
+                      int destination_ligne, int destination_colonne);
 
 #endif //CODE_TERRAIN_H

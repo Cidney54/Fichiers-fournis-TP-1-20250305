@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.30"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Fichiers_fournis_TP_1_20250305",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Fichiers_fournis_TP_1_20250305::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Fichiers_fournis_TP_1_20250305-Debug-47e5a6b90546c1cfd192.json",
+					"name" : "Fichiers_fournis_TP_1_20250305",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/cidneyberlypetitsaint/Desktop/Fichiers fournis TP 1-20250305/cmake-build-debug",
+		"source" : "/Users/cidneyberlypetitsaint/Desktop/Fichiers fournis TP 1-20250305"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

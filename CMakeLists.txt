@@ -16,4 +16,6 @@ add_executable(Fichiers_fournis_TP_1_20250305
         jeu.h
         main.c
         terrain.c
-        terrain.h)
+        terrain.h
+        util.h
+        util.c)
