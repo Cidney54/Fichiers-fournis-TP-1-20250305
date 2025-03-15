@@ -218,7 +218,8 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
 
 // Definir la fonction 'afficher_direction_suggeree' ici
 void afficher_direction_suggeree(directions[], int nb) {
-    for (int i = 0; i < nb; i++) {
+  printf("Directions suggérées: ");
+  for (int i = 0; i < nb; i++) {
         if (directions[i] == HAUT) {
             printf("Haut ");
         } else if (directions[i] == BAS) {
