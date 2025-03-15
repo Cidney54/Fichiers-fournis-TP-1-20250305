@@ -185,7 +185,9 @@ void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*
 }
 
 // Definir la fonction 'cout_deplacement' ici
-
+int cout_deplacement (couts, int voisin_ligne,int voisin_colonne){
+  return 1 + (9 -couts [voisin_ligne][voision_colonne];
+}
 // Definir la fonction 'maj_voisins' ici
 
 // Definir la fonction 'afficher_couts' ici
