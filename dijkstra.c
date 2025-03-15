@@ -35,7 +35,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
-void initialiser_couts(couts,int joueur_ligne, in joueur_colonne); 
+void initialiser_couts(couts,int joueur_ligne, int joueur_colonne); 
 /**
  * @brief Initialise toutes les cases a non visitee.
  * @name initialiser_visitees
@@ -74,7 +74,7 @@ void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int*ca
  * @note le cout pour aller d'une case a l'une de ses voisines est 1 + (9 - carburant dans la case voisine)
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
-
+int cout_deplacement(couts, int voisin_ligne, int voisin_colonne) 
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
  * @name maj_voisins
