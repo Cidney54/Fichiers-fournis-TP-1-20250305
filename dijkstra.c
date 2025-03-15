@@ -193,8 +193,23 @@ return cout_voisin;
 
 // Definir la fonction 'afficher_couts' ici
 
-int afficher_couts(couts, visitees, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
+int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
+  for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+          if (i == joueur_ligne && j == joueur_colonne) {
+            // 0 vert?
+          }
+          else if (i == destination_ligne && j == destination_colonne) {
+            //0 rouge?
+          }
+          else if (visitees[i][j]) {        //si la case est visitee, afficher le cout
+            printf("%d", couts[i][j]);       //pointeur??
+          }
+          // else {
+          //   printf("%d", couts[i][j]);
+          // }
 }
+
 
 
 // Definir la fonction 'calculer_chemin_bonus' ici
