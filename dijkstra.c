@@ -151,6 +151,7 @@ for (int i=0; i< NB_LIGNES; i++){
 }
 int l_dep, c_dep;
     t_couts[l_dep][c_dep] = 0;  //  initialisation de la case de depart
+//*****************************************???
 }
 
 // Definir la fonction 'initialiser_visitees' ici
