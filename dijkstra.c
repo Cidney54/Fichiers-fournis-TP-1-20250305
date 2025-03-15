@@ -193,6 +193,10 @@ return cout_voisin;
 
 // Definir la fonction 'afficher_couts' ici
 
+int afficher_couts(couts, visitees, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
+}
+
+
 // Definir la fonction 'calculer_chemin_bonus' ici
 
 // Definir la fonction 'dijkstra' ici
