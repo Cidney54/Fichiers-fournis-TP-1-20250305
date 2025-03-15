@@ -35,7 +35,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
-void initialiser_couts(t_couts couts,int joueur_ligne, in joueur_colonne); 
+void initialiser_couts(couts,int joueur_ligne, in joueur_colonne); 
 /**
  * @brief Initialise toutes les cases a non visitee.
  * @name initialiser_visitees
@@ -52,7 +52,7 @@ void initialiser_visitees(visitees, case_ligne, case_colonne);
  * @return true si la case a deja ete visitee, false sinon
  */
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
-bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne);
+bool est_case_visitee(visitees, int case_ligne, int case_colonne);
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -63,7 +63,7 @@ bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne);
  * @param case_choisie_colonne l'adresse ou deposer la colonne de la case choisie
  */
 //  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(t_couts couts,t visites visitees,int *case_choisie_ligne,int*case_choisie_colonne);
+void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int*case_choisie_colonne);
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
  * @name cout_deplacement
@@ -143,7 +143,7 @@ void choisir_min_dist_non_visitee(t_couts couts,t visites visitees,int *case_cho
 //  Definitions des fonctions privees
 //  *********************************
 // Definir la fonction 'initialiser_couts' ici
-void initialiser_couts(t_couts couts,int joueur_ligne, in joueur_colonne) {
+void initialiser_couts(couts, int joueur_ligne, in joueur_colonne) {
 for (int i=0; i< NB_LIGNES; i++){
   for (int j=0; j< NB_COLONNES; j++) {
       couts [i][j] = INT_MAX; // Valeur maximale pour representer le cout infini
@@ -163,6 +163,7 @@ void initialiser_visitees (visitees, int case_ligne, int case_colonne){
     }
   }
 }
+//parametres case ligne colonne???***************
 
 // Definir la fonction 'est_case_visitee' ici
 bool est_case_visitee(visitees, int case_ligne, int case_colonne){
