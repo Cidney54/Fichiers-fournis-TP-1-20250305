@@ -1,6 +1,11 @@
 //
 // Created by stephane on 08/01/25.
 //
+#include "dijsktra.h"
+#include <limits.h>
+#include <stdbool.h>
+#include <stdio.h>
+
 
 /*
 
@@ -9,6 +14,8 @@
 //  ****************************
 //  Type pour le tableau des couts qui donne le cout en carburant du plus court chemin du depart a l'une des cases du terrain
 typedef int t_couts[NB_LIGNES][NB_COLONNES];
+
+
 
 //  Type pour le tableau 2D permettant de savoir si une case a deja ete visitee lors de l'algorithme de Dijkstra
 typedef bool t_visites[NB_LIGNES][NB_COLONNES];
@@ -28,14 +35,14 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
-
+void initialiser_couts(t_couts couts,int joueur_ligne, in joueur_colonne); 
 /**
  * @brief Initialise toutes les cases a non visitee.
  * @name initialiser_visitees
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
-
+void initialiser_visitees(t_visite visitees);
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
  * @name est_case_visitee
@@ -135,8 +142,24 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 //  Definitions des fonctions privees
 //  *********************************
 // Definir la fonction 'initialiser_couts' ici
+void initialiser_couts(t_couts couts,int joueur_ligne, in joueur_colonne) {
+for (int i=0; i< NB_LIGNES; i++){
+  for (int j=0; j< NB_COLONNES; j++) {
+      couts [i][j] = INT_MAX; // Valeur maximale pour representer le cout infini
+  }
+}
+
 
 // Definir la fonction 'initialiser_visitees' ici
+void initialiser_visitees(t_visite visitees){
+  //Initialise toutes les cases comme non visitees
+  for (int i=0; i< NB_LIGNES; i++) {
+      for (int j
+
+
+
+
+
 
 // Definir la fonction 'est_case_visitee' ici
 
