@@ -42,7 +42,7 @@ void initialiser_couts(t_couts couts,int joueur_ligne, in joueur_colonne);
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
-void initialiser_visitees(t_visite visitees);
+void initialiser_visitees(visitees, case_ligne, case_colonne);
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
  * @name est_case_visitee
@@ -155,7 +155,7 @@ int l_dep, c_dep;
 }
 
 // Definir la fonction 'initialiser_visitees' ici
-void initialiser_visitees(t_visite visitees){
+void initialiser_visitees (visitees, int case_ligne, int case_colonne){
   //Initialise toutes les cases comme non visitees
   for (int i=0; i< NB_LIGNES; i++) {
       for (int j= 0; j < NB_COLONNES; j++) {
@@ -165,12 +165,12 @@ void initialiser_visitees(t_visite visitees){
 }
 
 // Definir la fonction 'est_case_visitee' ici
-bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne){
+bool est_case_visitee(visitees, int case_ligne, int case_colonne){
     return visitees [case_ligne][case_colonne];
 }// Permet de suivre les cases du terrain que l'algo a deja explorees(chaque cases  est marquees comme visitee ou non)
 
 // Definir la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(t_couts couts,t visites visitees,int *case_choisie_ligne,int*case_choisie_colonne);
+void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*case_choisie_colonne);
 // Definir la fonction 'cout_deplacement' ici
 
 // Definir la fonction 'maj_voisins' ici
