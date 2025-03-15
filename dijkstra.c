@@ -63,7 +63,7 @@ bool est_case_visitee(visitees, int case_ligne, int case_colonne);
  * @param case_choisie_colonne l'adresse ou deposer la colonne de la case choisie
  */
 //  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int*case_choisie_colonne);
+void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *case_choisie_colonne);
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
  * @name cout_deplacement
