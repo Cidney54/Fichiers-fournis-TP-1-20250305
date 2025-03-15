@@ -176,7 +176,7 @@ void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
             if (!visitees[i][j] && couts[i][j] < min_cout) {
-                min_cout = couts[i][j];
+                min_cout = couts[i][j]; // On met a jour le min_cout si on trouve un cout plus bas
                 *case_choisie_ligne = i;
                 *case_choisie_colonne = j;
             }
