@@ -154,13 +154,11 @@ for (int i=0; i< NB_LIGNES; i++){
 void initialiser_visitees(t_visite visitees){
   //Initialise toutes les cases comme non visitees
   for (int i=0; i< NB_LIGNES; i++) {
-      for (int j
-
-
-
-
-
-
+      for (int j= 0; j < NB_COLONNES; j++) {
+          visitees[i][j]=false;
+    }
+  }
+}
 // Definir la fonction 'est_case_visitee' ici
 
 // Definir la fonction 'choisir_min_dist_non_visitee' ici
