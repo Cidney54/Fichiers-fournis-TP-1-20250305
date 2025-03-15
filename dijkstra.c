@@ -133,7 +133,7 @@ int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
  * @param nb le nombre de directions a suivre
  */
 //  Ecrire le prototype de la fonction 'afficher_direction_suggeree' ici
-
+void afficher_direction_suggeree(directions[], int nb);
 //  ***********************************
 //  Definitions des fonctions publiques
 //  ***********************************
@@ -202,3 +202,17 @@ int afficher_couts(couts, visitees, int joueur_ligne, int joueur_colonne, int de
 // Definir la fonction 'dijkstra' ici
 
 // Definir la fonction 'afficher_direction_suggeree' ici
+void afficher_direction_suggeree(directions[], int nb) {
+    for (int i = 0; i < nb; i++) {
+        if (directions[i] == HAUT) {
+            printf("Haut ");
+        } else if (directions[i] == BAS) {
+            printf("Bas ");
+        } else if (directions[i] == GAUCHE) {
+            printf("Gauche ");
+        } else if (directions[i] == DROITE) {
+            printf("Droite ");
+        }
+    }
+    printf("\n");
+}
