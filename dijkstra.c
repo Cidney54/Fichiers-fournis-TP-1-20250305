@@ -149,7 +149,9 @@ for (int i=0; i< NB_LIGNES; i++){
       couts [i][j] = INT_MAX; // Valeur maximale pour representer le cout infini
   }
 }
-
+int l_dep, c_dep;
+    t_couts[l_dep][c_dep] = 0;  //  initialisation de la case de depart
+}
 
 // Definir la fonction 'initialiser_visitees' ici
 void initialiser_visitees(t_visite visitees){
