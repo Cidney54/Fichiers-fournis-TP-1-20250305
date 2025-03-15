@@ -171,7 +171,19 @@ bool est_case_visitee(visitees, int case_ligne, int case_colonne){
 }// Permet de suivre les cases du terrain que l'algo a deja explorees(chaque cases  est marquees comme visitee ou non)
 
 // Definir la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*case_choisie_colonne);
+void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*case_choisie_colonne){
+    int min_cout = INT_MAX;
+    for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+            if (!visitees[i][j] && couts[i][j] < min_cout) {
+                min_cout = couts[i][j];
+                *case_choisie_ligne = i;
+                *case_choisie_colonne = j;
+            }
+        }
+    }
+}
+
 // Definir la fonction 'cout_deplacement' ici
 
 // Definir la fonction 'maj_voisins' ici
