@@ -5,7 +5,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
-
+#include <terrain.c>
 
 /*
 
@@ -185,9 +185,10 @@ void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*
 }
 
 // Definir la fonction 'cout_deplacement' ici
-int cout_deplacement (couts, int voisin_ligne,int voisin_colonne){
-  return 1 + (9 -couts [voisin_ligne][voision_colonne];
-}
+int cout_deplacement ( int terrain[NB_LIGNES][NB_COLONNES],couts, int voisin_ligne,int voisin_colonne)
+  int carburant= terrain_get_carburant(terrain, voisin_ligne,voisin_colonne); // recuperer la qt de carburant de la case voisine
+   int cout_voision= 1 + (9 -carburant); 
+return cout_voisin; 
 // Definir la fonction 'maj_voisins' ici
 
 // Definir la fonction 'afficher_couts' ici
