@@ -60,43 +60,65 @@ int main(void) {
 //  ********************************************
 // Definir la fonction 'jeu_executer' ici */
 
-void jeu_exectuer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
+void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
     int destination_colonne) {
 
-    t_jeu_etat jeu_etat = JEU_ETAT_EN_COURS;
-    int voisin_ligne,
-    voisin_colonne;
+    /* Initialiser les variables d'éxécution de jeu. */
+    t_jeu_etat jeu_etat = JEU_ETAT_EN_COURS; // L'état du jeu.
+    int voisin_ligne, // La ligne de la case dans laquelle le joueur veut se déplacer.
+    voisin_colonne; // La colonne de la case dans laquelle le joueur veut se déplacer.
 
+    /* Initialiser et vérifier l'action demandée au joueur. */
+    t_action action = interaction_demander_action(joueur_carburant);
+    action = interaction_verifier_choix_action(action, joueur_carburant);
+
+    /* Boucle pour exécuter les parties du jeu jusqu'à sa fin. */
     while (jeu_etat == JEU_ETAT_EN_COURS) {
 
-        t_action action = interaction_demander_action(joueur_carburant);
-        action = interaction_verifier_choix_action(action, joueur_carburant);
-
+        /* Traiter les actions demandées par le joueur. */
         switch (action) {
 
+            /* Traiter l'action de déplacement. */
             case ACTION_DEPLACER:
+
+                /* Initialiser la validation de la direction saisit par le joueur. */
                 t_direction direction = DIRECTION_ERRONEE;
 
+                /* Boucle pour saisir la direction tant qu'elle est erronée. */
                 while (direction == DIRECTION_ERRONEE) {
+
+                    /* Saisir et valider la direction de déplacement du joueur. */
                     direction = interaction_demander_direction_deplacement();
                     direction = jeu_verifier_choix_deplacement(direction);
                 }
 
+                /* Déterminer et valider la case dans la direction choisie. */
                 jeu_calculer_voisin(joueur_ligne,joueur_colonne,direction,&voisin_ligne, &voisin_colonne);
 
+                /* Mettre à jour le positionnement du joueur. */
                 joueur_ligne = voisin_ligne;
                 joueur_colonne = voisin_colonne;
 
+                /* Mettre à joueur le carburant du joueur et la quantité dans la case du tableau. */
                 jeu_maj_carburant_joueur(joueur_ligne,joueur_colonne,&joueur_carburant,terrain);
 
+                /* Vérifier si le joueur est rendu à la destination de fin du jeu. */
                 jeu_etat = jeu_verifier_fin(joueur_ligne,joueur_colonne,joueur_carburant,destination_ligne,
                     destination_colonne);
 
+            /* Traîter l'action d'achat de bonus. */
             case ACTION_ACHETER_BONUS:
                 printf("ok");
+
             case ACTION_QUITTER:
-                printf("ok");
+
+                jeu_etat = JEU_ETAT_ECHEC;
+
             default:
+
+                /* Réinitialiser et vérifier l'action demandée au joueur. */
+                    action = interaction_demander_action(joueur_carburant);
+                    action = interaction_verifier_choix_action(action, joueur_carburant);
 
         }
     }
