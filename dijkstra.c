@@ -147,6 +147,16 @@ void afficher_direction_suggeree(directions[], int nb);
 //  Definitions des fonctions publiques
 //  ***********************************
 // Definir la fonction 'dijkstra_acheter_bonus' ici
+void dijkstra_acheter_bonus(int carburant) {
+    if (carburant >= 10) {
+        //carb-10
+        //printf fct afficher d sugg 
+    }
+    else {
+        printf("Vous n'avez pas assez de carburant pour acheter un bonus...");
+    }
+
+  }
 
 //  *********************************
 //  Definitions des fonctions privees
