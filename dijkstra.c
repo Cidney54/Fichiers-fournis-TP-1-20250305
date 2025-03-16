@@ -201,7 +201,7 @@ void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int vo
 
 // Definir la fonction 'afficher_couts' ici
 
-void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeur_colonne, int destination_ligne, int destination_colonne) {
+void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
   for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
           if (i == joueur_ligne && j == joueur_colonne) {
