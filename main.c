@@ -20,39 +20,27 @@
  * @param destination_colonne la colonne de la case a atteindre
  */
 //  Ecrire le prototype de la fonction 'jeu_executer' ici
-void jeu_executer(int terrain[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne, int joueur_carburant,
-                  int destination_ligne, int destination_colonne);
+void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
+    int destination_colonne);
 
 //  ******************************
 //  Definition de la fonction main
 //  ******************************
 
-/*int main(void) {
+int main(void) {
 
     interaction_presenter_jeu();
 
-    int t_terrain[NB_LIGNES][NB_COLONNES] = {};
+    t_terrain terrain = {};
     int sortie_ligne = 0;
     int sortie_colonne = 0;
     int depart_ligne = 0;
     int depart_colonne = 0;
     int joueur_carburant = JOUEUR_CARBURANT_INITIAL;
 
-    terrain_creer_stations_carburant(t_terrain,TOTAL_CARBURANT_NIVEAU_1);
-    do {
-        terrain_generer_position_sortie(&sortie_ligne,&sortie_colonne);
-    } while (t_terrain[sortie_ligne][sortie_colonne] == 0);
-
-    do {
-        terrain_generer_position_depart(sortie_ligne,sortie_colonne,&depart_ligne,&depart_colonne);
-    } while (t_terrain[depart_ligne][depart_colonne]);
-
-    terrain_afficher(t_terrain,&depart_ligne,&depart_colonne,sortie_ligne,sortie_colonne);
-
-    interaction_afficher_option(joueur_carburant);
-    jeu_executer(t_terrain,depart_ligne,depart_colonne,joueur_carburant,sortie_ligne,sortie_colonne);
 }
 
+/*
 int main(void) {
     srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
     rand();                                 // ligne qui sert à genéré le chiffre aléatoire
