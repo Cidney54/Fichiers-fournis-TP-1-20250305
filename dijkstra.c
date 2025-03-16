@@ -290,25 +290,7 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joue
 
 // Definir la fonction 'dijkstra' ici
 
-// Definir la fonction 'afficher_direction_suggeree' ici // Boucle qui parcourt le tableau directions [], qui contient (HAUT,BAS,GAUCHE,DROITE)
-void afficher_direction_suggeree(directions[], int nb) {
-            printf("Directions suggérées: ");
-            for (int i = 0; i < nb; i++) {
-                if (directions[i] == HAUT) {
-                    printf("Haut ");
-                } else if (directions[i] == BAS) {
-                    printf("Bas ");
-                } else if (directions[i] == GAUCHE) {
-                    printf("Gauche ");
-                } else if (directions[i] == DROITE) {
-                    printf("Droite ");
-                }
-            }
-            printf("\n");
-        }
-    }
-    printf("\n");
-}
+// Definir la fonction 'afficher_direction_suggeree' ici // 
 void afficher_direction_suggeree(t_direction directions, int nb) {
       //loop de 4?
       //fct cout deplacement?
