@@ -93,15 +93,23 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
                     direction = jeu_verifier_choix_deplacement(direction);
                 }
 
-                /* Mettre à jour le positionnement du joueur. */
-                jeu_deplacer_joueur(&joueur_ligne,&joueur_colonne,direction);
+                /* Déterminer la case dans la direction de déplacement */
+                jeu_calculer_voisin(joueur_ligne,joueur_colonne,direction,&voisin_ligne,&voisin_colonne);
 
-                /* Mettre à joueur le carburant du joueur et la quantité dans la case du tableau. */
-                jeu_maj_carburant_joueur(joueur_ligne,joueur_colonne,&joueur_carburant,terrain);
+                /* Vérifier si la case est contenu dans le terrain. */
+                if (terrain_contient(voisin_ligne,voisin_colonne)) {
 
-                /* Vérifier si le joueur est rendu à la destination de fin du jeu. */
-                jeu_etat = jeu_verifier_fin(joueur_ligne,joueur_colonne,joueur_carburant,destination_ligne,
-                    destination_colonne);
+                    /* Mettre à jour le positionnement du joueur. */
+                    jeu_deplacer_joueur(&joueur_ligne,&joueur_colonne,direction);
+
+                    /* Mettre à joueur le carburant du joueur et la quantité dans la case du tableau. */
+                    jeu_maj_carburant_joueur(joueur_ligne,joueur_colonne,&joueur_carburant,terrain);
+
+                    /* Vérifier si le joueur est rendu à la destination de fin du jeu. */
+                    jeu_etat = jeu_verifier_fin(joueur_ligne,joueur_colonne,joueur_carburant,destination_ligne,
+                        destination_colonne);
+
+                }
 
                 break;
 
