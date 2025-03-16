@@ -160,6 +160,20 @@ int jeu_verifier_choix_deplacement(char choix[]) {
  */
 void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int *voisin_ligne, int *voisin_colonne) {
 
+    switch (direction) {
+        case DIRECTION_HAUT:
+            *voisin_ligne = case_ligne - COUT_DEPLACEMENT_VOISIN;
+            break;
+        case DIRECTION_BAS:
+            *voisin_ligne = case_ligne + COUT_DEPLACEMENT_VOISIN;
+            break;
+        case DIRECTION_DROITE:
+            *voisin_colonne = case_colonne + COUT_DEPLACEMENT_VOISIN;
+            break;
+        case DIRECTION_GAUCHE:
+            *voisin_colonne = case_colonne - COUT_DEPLACEMENT_VOISIN;
+            break;
+    }
 
 }
 
@@ -180,7 +194,6 @@ void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int *v
 int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
                      int destination_colonne) {
 
-    //terrain_generer_position_depart(joueur_ligne, joueur_colonne, &destination_ligne, &destination_colonne);
     int etat_jeu = 0;
 
     if (joueur_ligne == destination_ligne && joueur_colonne == destination_colonne && joueur_carburant >= 0) {
