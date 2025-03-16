@@ -260,6 +260,8 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joue
 
 
 // Definir la fonction 'calculer_chemin_bonus' ici
+      void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[]) {
+          
 
 // Definir la fonction 'dijkstra' ici
 
