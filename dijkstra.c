@@ -57,8 +57,12 @@ void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
  * @return true si la case a deja ete visitee, false sinon
  */
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
+<<<<<<< HEAD
 //bool est_case_visitee(visitees, int case_ligne, int case_colonne);
 
+=======
+void est
+>>>>>>> 7b378545e08588fb25efbe6b94fe06239c6fe362
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -106,7 +110,7 @@ void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLO
  * @param destination_colonne la colonne de la position a atteindre
  */
 //  Ecrire le prototype de la fonction 'afficher_couts' ici
-
+void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeur_colonne, int destination_ligne, int destination_colonne);
 /**
  * @brief Calcule les 4 premieres cases du plus court chemin en terme de carburant
  * @name calculer_chemin_bonus
@@ -154,7 +158,7 @@ void afficher_direction_suggeree(directions[], int nb);
 //  Definitions des fonctions privees
 //  *********************************
 // Definir la fonction 'initialiser_couts' ici
-void initialiser_couts(int couts[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne) {
+void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
             couts[i][j] = INT_MAX; // pour reprensenter cout infini
@@ -205,7 +209,7 @@ int cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int voi
 
 // Definir la fonction 'afficher_couts' ici
 
-int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
+void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeur_colonne, int destination_ligne, int destination_colonne) {
   for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
           if (i == joueur_ligne && j == joueur_colonne) {
@@ -230,7 +234,7 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
 // Definir la fonction 'dijkstra' ici
 
 // Definir la fonction 'afficher_direction_suggeree' ici // Boucle qui parcourt le tableau directions [], qui contient (HAUT,BAS,GAUCHE,DROITE)
-void afficher_direction_suggeree(t_directions directions, int nb) {
+void afficher_direction_suggeree(directions[], int nb) {
             printf("Directions suggérées: ");
             for (int i = 0; i < nb; i++) {
                 if (directions[i] == HAUT) {
