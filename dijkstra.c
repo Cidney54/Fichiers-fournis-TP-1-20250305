@@ -5,7 +5,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <terrain.c>
+#include "terrain.h"
 
 
 
@@ -43,7 +43,7 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne);
  */
 
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
-void initialiser_visitees(visitees, case_ligne, case_colonne);
+void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
  * @name est_case_visitee
