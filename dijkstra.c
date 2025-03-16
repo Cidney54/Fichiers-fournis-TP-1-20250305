@@ -1,7 +1,7 @@
 //
 // Created by stephane on 08/01/25.
 //
-#include "dijsktra.h"
+#include "dijkstra.h"
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -35,7 +35,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
-void initialiser_couts(couts,int joueur_ligne, int joueur_colonne); 
+void initialiser_couts(int couts,int joueur_ligne, int joueur_colonne);
 /**
  * @brief Initialise toutes les cases a non visitee.
  * @name initialiser_visitees
@@ -74,7 +74,7 @@ void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *c
  * @note le cout pour aller d'une case a l'une de ses voisines est 1 + (9 - carburant dans la case voisine)
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
-int cout_deplacement(couts, int voisin_ligne, int voisin_colonne) 
+int cout_deplacement(int couts, int voisin_ligne, int voisin_colonne);
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
  * @name maj_voisins
@@ -86,7 +86,7 @@ int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
  * @param courante_colonne la colonne de la position courante a partir de laquelle on regarde les voisins
  */
 //  Ecrire le prototype de la fonction 'maj_voisins' ici
-void maj_voisins(couts,visitees,int terrain[NB_LIGNES][NB_COLONNES],...,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
+void maj_voisins(couts,visitees,int terrain[NB_LIGNES][NB_COLONNES],int precedents,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
 /**
  * @brief Affiche le tableau des couts
  * @name afficher_couts
@@ -143,7 +143,7 @@ void afficher_direction_suggeree(directions[], int nb);
 //  Definitions des fonctions privees
 //  *********************************
 // Definir la fonction 'initialiser_couts' ici
-void initialiser_couts(couts, int joueur_ligne, in joueur_colonne) {
+void initialiser_couts(couts, int joueur_ligne, int joueur_colonne) {
 for (int i=0; i< NB_LIGNES; i++){
   for (int j=0; j< NB_COLONNES; j++) {
       couts [i][j] = INT_MAX; // Valeur maximale pour representer le cout infini
@@ -218,17 +218,18 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
 
 // Definir la fonction 'afficher_direction_suggeree' ici // Boucle qui parcourt le tableau directions [], qui contient (HAUT,BAS,GAUCHE,DROITE)
 void afficher_direction_suggeree(directions[], int nb) {
-  printf("Directions suggérées: ");
-  for (int i = 0; i < nb; i++) {
-        if (directions[i] == HAUT) {
-            printf("Haut ");
-        } else if (directions[i] == BAS) {
-            printf("Bas ");
-        } else if (directions[i] == GAUCHE) {
-            printf("Gauche ");
-        } else if (directions[i] == DROITE) {
-            printf("Droite ");
+            printf("Directions suggérées: ");
+            for (int i = 0; i < nb; i++) {
+                if (directions[i] == HAUT) {
+                    printf("Haut ");
+                } else if (directions[i] == BAS) {
+                    printf("Bas ");
+                } else if (directions[i] == GAUCHE) {
+                    printf("Gauche ");
+                } else if (directions[i] == DROITE) {
+                    printf("Droite ");
+                }
+            }
+            printf("\n");
         }
-    }
-    printf("\n");
-}
+
