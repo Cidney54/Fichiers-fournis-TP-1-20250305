@@ -212,7 +212,7 @@ void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int vo
 void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne){
     // Iteration des voisins possibles(HAUT, BAS, GAUCHE, DROITE)
     int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // (directions_lignes, directions_colonnes) voisins
-
+//Parcours les 4 directions possibles
     for (int i = 0; i < 4; i++) {
         int voisin_ligne = courante_ligne + directions[i][0];
         int voisin_colonne = courante_colonne + directions[i][1]; 
@@ -283,6 +283,7 @@ void afficher_direction_suggeree(directions[], int nb) {
 void afficher_direction_suggeree(t_direction directions, int nb) {
       //loop de 4?
       //fct cout deplacement?
+    //fct jeu.h??
             printf("Directions suggérées: ");
       for (int i = 0; i < NB_LIGNES; i++) {
           for (int j = 0; j < NB_COLONNES; j++)
