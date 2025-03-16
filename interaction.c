@@ -48,6 +48,7 @@ void interaction_presenter_jeu() {
 
 void interaction_afficher_option(int carburant) {
 
+    /*  */
     printf("Voici vos options: \n");
     printf("1.Déplacer\n");
     if (carburant < 10) {
