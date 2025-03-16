@@ -13,49 +13,44 @@
 //  ***********************************
 
 // Definir la fonction 'jeu_maj_carburant_joueur' ici
-/**
- * @brief Met a jour la quantite de carburant du joueur apres un deplacement. Annule la quantite de carburant sur la case du joueur.
- * @name jeu_maj_carburant_joueur
- * @param joueur_ligne la ligne ou se trouve maintenant le joueur
- * @param joueur_colonne la colonne ou se trouve maintenant le joueur
- * @param joueur_carburant l'adresse ou placer la nouvelle quantite de carburant du joueur apres deplacement
- * @param terrain le terrain sur lequel le joueur s'est deplace
- */
 void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_carburant,
                               t_terrain terrain) {
-
+    //ajoute le carburant de la case au carburant du joueur
     *joueur_carburant += terrain_get_carburant(terrain, joueur_ligne, joueur_colonne);
+    //soustrai le 1 litre de carburant
     *joueur_carburant -= COUT_DEPLACEMENT_VOISIN;
+    //initialise la case sur lequel se trouve le joueur à zéro
     terrain_set_carburant(terrain, joueur_ligne, joueur_colonne, 0);
 
 }
 // Definir la fonction 'jeu_deplacer_joueur' ici
-/**
- * @brief Deplace le joueur dans une dircetion donnee.
- * @name jeu_deplacer_joueur
- * @param joueur_ligne l'adresse de la ligne ou se trouve le joueur avant le deplacement et qui sera mise a jour
- * @param joueur_colonne l'adresse de la colonne ou se trouve le joueur avant le deplacement et qui sera mise a jour
- * @param direction la direction dans laquelle on veut deplacer le joueur
- * @return true si le deplacement a pu se faire dans les lilmites du terrain, false sinon
- */
 
 int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction) {
     direction = interaction_demander_direction_deplacement();
 
     int condition = true;
+    //déplace le joueur à droite
     if (direction == DIRECTION_DROITE) {
         *joueur_colonne += 1;
-    } else if (direction == DIRECTION_BAS) {
+    }
+        //déplace le joueur en bas
+    else if (direction == DIRECTION_BAS) {
         *joueur_ligne -= 1;
-    } else if (direction == DIRECTION_HAUT) {
+    }
+        //déplace le joueur en haut
+    else if (direction == DIRECTION_HAUT) {
         *joueur_ligne += 1;
-    } else if (direction == DIRECTION_GAUCHE) {
+    }
+        //déplace le joueur à gauche
+    else if (direction == DIRECTION_GAUCHE) {
         *joueur_colonne -= 1;
     }
-
+    //si le joueur dépasse les bornes du terrain retourne faux
     if (*joueur_ligne > NB_LIGNES || *joueur_ligne < 0) {
         condition = false;
-    } else if (*joueur_colonne > NB_COLONNES || *joueur_colonne < 0) {
+    }
+        //si le joueur dépasse les bornes du terrain retourne faux
+    else if (*joueur_colonne > NB_COLONNES || *joueur_colonne < 0) {
         condition = false;
     }
     return condition;
@@ -100,23 +95,26 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
 }
 
 // Definir la fonction 'jeu_afficher_direction' ici
-
-/**
- * @brief Affiche une direction en toutes lettres
- * @name jeu_afficher_direction
- * @param direction la direction a afficher
- */
 void jeu_afficher_direction(t_direction direction) {
 
+    //affiche droite
     if (direction == DIRECTION_DROITE) {
         printf("Droite\n");
-    } else if (direction == DIRECTION_GAUCHE) {
+    }
+        //affiche gauche
+    else if (direction == DIRECTION_GAUCHE) {
         printf("Gauche\n");
-    } else if (direction == DIRECTION_HAUT) {
+    }
+        //affiche haut
+    else if (direction == DIRECTION_HAUT) {
         printf("Haut\n");
-    } else if (direction == DIRECTION_BAS) {
+    }
+        //affiche bas
+    else if (direction == DIRECTION_BAS) {
         printf("Bas\n");
-    } else {
+    }
+        //affiche erroné
+    else {
         printf("erroné");
     }
 }
@@ -154,6 +152,7 @@ int jeu_verifier_choix_deplacement(int choix) {
 void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int *voisin_ligne, int *voisin_colonne) {
 
     switch (direction) {
+        //Met à jour la valeur du voisin selon la direction demandee
         case DIRECTION_HAUT:
             *voisin_ligne = case_ligne - COUT_DEPLACEMENT_VOISIN;
             break;
@@ -188,12 +187,16 @@ int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant,
                      int destination_colonne) {
 
     int etat_jeu = 0;
-
+    //retourne etat victoire si la joueur atteint la sortie
     if (joueur_ligne == destination_ligne && joueur_colonne == destination_colonne && joueur_carburant >= 0) {
         etat_jeu = JEU_ETAT_VICTOIRE;
-    } else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant > 0) {
+    }
+        // retourne etat en cour, si le joueur est en train de joueur
+    else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant > 0) {
         etat_jeu = JEU_ETAT_EN_COURS;
-    } else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant == 0) {
+    }
+        //retour état echec si joueur n'a plus de carburant
+    else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant == 0) {
         etat_jeu = JEU_ETAT_ECHEC;
     }
     return etat_jeu;
