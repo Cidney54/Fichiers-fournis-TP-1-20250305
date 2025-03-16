@@ -113,7 +113,7 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeu
  * @return le nombre de directions proposees par l'algorithme (normalement 4, mais peut etre plus petit)
  */
 //  Ecrire le prototype de la fonction 'calculer_chemin_bonus' ici
-void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[]);
+void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, t direction directions);
 /**
  * @brief Algorithme de Dijkstra pour calculer le plus court chemin en partent de la position du joueur pour atteindre
  * la position de destination.
@@ -127,7 +127,7 @@ void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_
  * @return
  */
 //  Ecrire le prototype de la fonction 'dijkstra' ici
-void dijkstra(int terrain [NB_LIGNES][NB_COLONNES] , int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, int directions[]);
+void dijkstra(int terrain [NB_LIGNES][NB_COLONNES] , int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_direction directions);
 /**
  * @brief Affiche les 4 premieres directions a suivre sur le plus court chemin pour joindre la destination a partir de la position du joueur
  * @name afficher_direction_suggeree
@@ -216,16 +216,38 @@ void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int vo
     int cout_voisin = 1 + (9 - carburant);
 }
 // Definir la fonction 'maj_voisins' ici
-void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne){
+void maj_voisins(t_couts couts,t_visites visitees,t_terrain terrain,t_precedents precedents,int courante_ligne,int courante_colonne){
     // Iteration des voisins possibles(HAUT, BAS, GAUCHE, DROITE)
-    int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // (directions_lignes, directions_colonnes) voisins
+    //int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // (directions_lignes, directions_colonnes) voisins
 //Parcours les 4 directions possibles
+    //for (int i = 0; i < 4; i++) {
+        //int voisin_ligne = courante_ligne + directions[i][0];
+        //int voisin_colonne = courante_colonne + directions[i][1];
+
+    int voisin_ligne,
+    voisin_colonne;
+
     for (int i = 0; i < 4; i++) {
-        int voisin_ligne = courante_ligne + directions[i][0];
-        int voisin_colonne = courante_colonne + directions[i][1]; 
+
+        if (i == 0) {
+            voisin_ligne = courante_ligne + 1;
+            voisin_colonne = courante_colonne;
+        }
+        else if (i == 1) {
+            voisin_ligne = courante_ligne - 1;
+            voisin_colonne = courante_colonne;
+        }
+        else if (i == 2) {
+            voisin_ligne = courante_ligne;
+            voisin_colonne = courante_colonne + 1;
+        }
+        else if (i == 3) {
+            voisin_ligne = courante_ligne;
+            voisin_colonne = courante_colonne -1;
+        }
 
         // Verifie que les voisins sont dans dans la zone permise
-        if (voisin_ligne >= 0 && voisin_ligne < NB_LIGNES && voisin_colonne >= 0 && voisin_colonne < NB_COLONNES) {
+           if (terrain_contient(voisin_ligne,voisin_colonne)) {
             // Verifie que les voisins n'ont pas ete visites
             if (visitees[voisin_ligne][voisin_colonne] == 0) {
                 // calcule le cout pour aller au voisin (depend du terrain)
@@ -263,30 +285,12 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joue
 
 
 // Definir la fonction 'calculer_chemin_bonus' ici
-      void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[]) {
+void calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, t_direction directions);
           
 
 // Definir la fonction 'dijkstra' ici
 
-// Definir la fonction 'afficher_direction_suggeree' ici // Boucle qui parcourt le tableau directions [], qui contient (HAUT,BAS,GAUCHE,DROITE)
-void afficher_direction_suggeree(directions[], int nb) {
-            printf("Directions suggérées: ");
-            for (int i = 0; i < nb; i++) {
-                if (directions[i] == HAUT) {
-                    printf("Haut ");
-                } else if (directions[i] == BAS) {
-                    printf("Bas ");
-                } else if (directions[i] == GAUCHE) {
-                    printf("Gauche ");
-                } else if (directions[i] == DROITE) {
-                    printf("Droite ");
-                }
-            }
-            printf("\n");
-        }
-    }
-    printf("\n");
-}
+// Definir la fonction 'afficher_direction_suggeree' ici // 
 void afficher_direction_suggeree(t_direction directions, int nb) {
       //loop de 4?
       //fct cout deplacement?
