@@ -161,6 +161,8 @@ void dijkstra_acheter_bonus(int carburant) {        //carb #include jeu.h? carb-
 //  *********************************
 // Definir la fonction 'initialiser_couts' ici
 void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
+
+    /* Boucle pour arcourir les lignes du tableau « couts ». */
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
             if (i == joueur_ligne && j == joueur_colonne) {
@@ -172,11 +174,6 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
             }
         }
     }
-}
-
-//int l_dep, c_dep;
-    //t_couts[l_dep][c_dep] = 0;  //  initialisation de la case de depart
-//*****************************************???
 }
 
 // Definir la fonction 'initialiser_visitees' ici
@@ -216,14 +213,39 @@ void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int vo
     int cout_voisin = 1 + (9 - carburant);
 }
 // Definir la fonction 'maj_voisins' ici
-void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne){
+void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne) {
     // Iteration des voisins possibles(HAUT, BAS, GAUCHE, DROITE)
-    int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // (directions_lignes, directions_colonnes) voisins
-//Parcours les 4 directions possibles
-    for (int i = 0; i < 4; i++) {
-        int voisin_ligne = courante_ligne + directions[i][0];
-        int voisin_colonne = courante_colonne + directions[i][1]; 
+    //int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // (directions_lignes, directions_colonnes) voisins
+    //Parcours les 4 directions possibles
+    //for (int i = 0; i < 4; i++) {
+    //int voisin_ligne = courante_ligne + directions[i][0];
+    //int voisin_colonne = courante_colonne + directions[i][1];
 
+    int voisin_ligne;
+    int voisin_colonne;
+
+    for (int i = 0; i < 4;i++) {
+
+        if (i == 0) {
+
+            voisin_ligne = courante_ligne - 1;
+            voisin_colonne = courante_colonne;
+        }
+        else if (i == 1) {
+
+            voisin_ligne = courante_ligne + 1;
+            voisin_colonne = courante_colonne;
+        }
+        else if (i == 2) {
+            
+            voisin_ligne = courante_ligne;
+            voisin_colonne = courante_colonne - 1;
+        }
+        else if (i == 3) {
+
+            voisin_ligne = courante_ligne;
+            voisin_colonne = courante_colonne + 1;
+        }
         // Verifie que les voisins sont dans dans la zone permise
         if (voisin_ligne >= 0 && voisin_ligne < NB_LIGNES && voisin_colonne >= 0 && voisin_colonne < NB_COLONNES) {
             // Verifie que les voisins n'ont pas ete visites
