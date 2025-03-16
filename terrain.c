@@ -55,7 +55,7 @@ int terrain_contient(int position_ligne, int position_colonne) {
 
 // Definir la fonction 'terrain_get_carburant' ici
 
-int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int position_colonne) {
+int terrain_get_carburant(t_terrain terrain, int position_ligne, int position_colonne) {
 
     /* Retourner la valeur dans la case spécifiée. */
     return terrain[position_ligne][position_colonne];
@@ -64,7 +64,7 @@ int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lign
 
 // Definir la fonction 'terrain_set_carburant' ici
 
-void terrain_set_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int position_colonne,
+void terrain_set_carburant(t_terrain terrain, int position_ligne, int position_colonne,
                            int carburant) {
 
     /* Enregistrer la quantité de carburant dans la case en paramètre. */
@@ -73,7 +73,7 @@ void terrain_set_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lig
 
 // Definir la fonction 'terrain_init' ici
 
-void terrain_init(int terrain[NB_LIGNES][NB_COLONNES]) {
+void terrain_init(t_terrain terrain) {
 
     /* Parcourir les lignes du tableau. */
     for (int i = 0; i < NB_LIGNES; i++) {
@@ -88,7 +88,7 @@ void terrain_init(int terrain[NB_LIGNES][NB_COLONNES]) {
 
 // Definir la fonction 'terrain_creer_stations_carburant' ici
 
-void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int quantite_globale) {
+void terrain_creer_stations_carburant(t_terrain terrain, int quantite_globale) {
 
     /* Initialiser les variables. */
     int carburant = 0; // La quantité de carburant à stocker dans une case.
@@ -140,8 +140,8 @@ void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int q
 
 // Definir la fonction 'terrain_afficher' ici
 
-void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES], int *courante_ligne, int *courante_colonne,
-                      int destination_ligne, int destination_colonne) {
+void terrain_afficher(t_terrain terrain, int *courante_ligne, int *courante_colonne, int destination_ligne,
+    int destination_colonne) {
 
     /* Afficher le tableau. */
     /* Parcourir chaque ligne du tableau en incluant les lignes de séparation. */

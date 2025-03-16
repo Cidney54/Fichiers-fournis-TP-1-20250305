@@ -41,6 +41,7 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne);
  * @name initialiser_visitees
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
+
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
 void initialiser_visitees(visitees, case_ligne, case_colonne);
 /**
