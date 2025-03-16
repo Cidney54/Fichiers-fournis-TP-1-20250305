@@ -71,7 +71,7 @@ int terrain_contient(int position_ligne, int position_colonne);
  */
 //  Ecrire le prototype de la fonction 'terrain_get_carburant' ici
 
-int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int position_colonne);
+int terrain_get_carburant(t_terrain terrain, int position_ligne, int position_colonne);
 
 /**
  * @brief Initialise la quantite de carburant sur une case du terrain
@@ -83,8 +83,7 @@ int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lign
  */
 //  Ecrire le prototype de la fonction 'terrain_set_carburant' ici
 
-void terrain_set_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int position_colonne,
-                           int carburant);
+void terrain_set_carburant(t_terrain terrain, int position_ligne, int position_colonne, int carburant);
 
 /**
  * @brief Initialise toutes les cases d'un terrain a 0 (zero)
@@ -93,17 +92,18 @@ void terrain_set_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lig
  */
 //  Ecrire le prototype de la fonction 'terrain_init' ici
 
-void terrain_init(int terrain[NB_LIGNES][NB_COLONNES]);
+void terrain_init(t_terrain terrain);
 
 /**
- * @brief Cree aleatoirement les stations de gas sur le terrain. La quantite_globale des quantites de gas des stations est passee en parametre.
+ * @brief Cree aleatoirement les stations de gas sur le terrain. La quantite_globale des quantites de gas des stations
+ * est passee en parametre.
  * @name terrain_creer_stations_carburant
  * @param terrain le terrain sur lequel on veut creer les stations de gas
  * @param quantite_globale la quantite globale de carburant a allouer sur l'ensemble des stations
  */
 //  Ecrire le prototype de la fonction 'terrain_creer_stations_carburant' ici
 
-void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int quantite_globale);
+void terrain_creer_stations_carburant(t_terrain terrain, int quantite_globale);
 
 /**
  * @brief Affiche la quantite de gas pour toutes les cases d'un terrain.
@@ -117,7 +117,7 @@ void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int q
  */
 //  Ecrire le prototype de la fonction 'terrain_afficher' ici
 
-void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES], int *courante_ligne, int *courante_colonne,
-                      int destination_ligne, int destination_colonne);
+void terrain_afficher(t_terrain terrain, int *courante_ligne, int *courante_colonne, int destination_ligne,
+    int destination_colonne);
 
 #endif //CODE_TERRAIN_H

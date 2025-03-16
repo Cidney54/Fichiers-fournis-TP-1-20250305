@@ -5,7 +5,8 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <terrain.c>
+#include "terrain.h"
+
 
 
 /*
@@ -15,8 +16,6 @@
 //  ****************************
 //  Type pour le tableau des couts qui donne le cout en carburant du plus court chemin du depart a l'une des cases du terrain
 typedef int t_couts[NB_LIGNES][NB_COLONNES];
-
-
 
 //  Type pour le tableau 2D permettant de savoir si une case a deja ete visitee lors de l'algorithme de Dijkstra
 typedef bool t_visites[NB_LIGNES][NB_COLONNES];
@@ -28,16 +27,19 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 //  Declarations des fonctions privees
 //  **********************************
 
+/**
  * @brief Initialise tous les couts avec le plus grand entier du type int.
  * Initialise egalement le cout de la case du joueur a 0.
  * @name initialiser_couts
  * @param couts le tableau bi-dimensionnel des couts a initialiser
  * @param joueur_ligne la ligne ou se trouve le joueur
  * @param joueur_colonne la colonne ou se trouve le joueur
- */
+*/
+
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
 
 //void initialiser_couts(couts,int joueur_ligne, int joueur_colonne);
+void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne);
 /**
  * @brief Initialise toutes les cases a non visitee.
  * @name initialiser_visitees
@@ -45,6 +47,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  */
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
 //void initialiser_visitees(visitees, case_ligne, case_colonne);
+void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
  * @name est_case_visitee
@@ -56,6 +59,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
 //bool est_case_visitee(visitees, int case_ligne, int case_colonne);
 
+
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
  * @name choisir_min_dist_non_visitee
@@ -66,6 +70,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  */
 //  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
 //void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *case_choisie_colonne);
+void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees,int *case_choisie_ligne,int *case_choisie_colonne);
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
  * @name cout_deplacement
@@ -77,6 +82,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
 //int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
+int cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
  * @name maj_voisins
@@ -88,7 +94,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param courante_colonne la colonne de la position courante a partir de laquelle on regarde les voisins
  */
 //  Ecrire le prototype de la fonction 'maj_voisins' ici
-
+void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
 /**
  * @brief Affiche le tableau des couts
  * @name afficher_couts
@@ -148,19 +154,20 @@ void afficher_direction_suggeree(directions[], int nb);
 //  Definitions des fonctions privees
 //  *********************************
 // Definir la fonction 'initialiser_couts' ici
-void initialiser_couts(couts, int joueur_ligne, in joueur_colonne) {
-for (int i=0; i< NB_LIGNES; i++){
-  for (int j=0; j< NB_COLONNES; j++) {
-      couts [i][j] = INT_MAX; // Valeur maximale pour representer le cout infini
-  }
+void initialiser_couts(int couts[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne) {
+    for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+            couts[i][j] = INT_MAX; // pour reprensenter cout infini
+    }
 }
+
 int l_dep, c_dep;
     t_couts[l_dep][c_dep] = 0;  //  initialisation de la case de depart
 //*****************************************???
 }
 
 // Definir la fonction 'initialiser_visitees' ici
-void initialiser_visitees (visitees, int case_ligne, int case_colonne){
+void initialiser_visitees (t_visites visitees, int case_ligne, int case_colonne){
   //Initialise toutes les cases comme non visitees
   for (int i=0; i< NB_LIGNES; i++) {
       for (int j= 0; j < NB_COLONNES; j++) {
@@ -171,12 +178,11 @@ void initialiser_visitees (visitees, int case_ligne, int case_colonne){
 //parametres case ligne colonne???***************
 
 // Definir la fonction 'est_case_visitee' ici
-bool est_case_visitee(visitees, int case_ligne, int case_colonne){
-    return visitees [case_ligne][case_colonne];
+
 }// Permet de suivre les cases du terrain que l'algo a deja explorees(chaque cases  est marquees comme visitee ou non)
 
 // Definir la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*case_choisie_colonne){
+void choisir_min_dist_non_visitee(t_couts couts,t_visites visitees, int *case_choisie_ligne, int*case_choisie_colonne){
     int min_cout = INT_MAX;
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
@@ -190,10 +196,11 @@ void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*
 }
 
 // Definir la fonction 'cout_deplacement' ici
-int cout_deplacement ( int terrain[NB_LIGNES][NB_COLONNES],couts, int voisin_ligne,int voisin_colonne)
-  int carburant= terrain_get_carburant(terrain, voisin_ligne,voisin_colonne); // recuperer la qt de carburant de la case voisine
-   int cout_voision= 1 + (9 -carburant); 
-return cout_voisin; 
+int cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int voisin_ligne, int voisin_colonne) {
+    int carburant = terrain_get_carburant(terrain, voisin_ligne, voisin_colonne);
+    int cout_voisin = 1 + (9 - carburant);
+    return cout_voisin;
+}
 // Definir la fonction 'maj_voisins' ici
 
 // Definir la fonction 'afficher_couts' ici
@@ -202,10 +209,10 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
   for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
           if (i == joueur_ligne && j == joueur_colonne) {
-            // 0 vert?
+            printf("j");
           }
           else if (i == destination_ligne && j == destination_colonne) {
-            //0 rouge?
+            printf("d");
           }
           else if (visitees[i][j]) {        //si la case est visitee, afficher le cout
             printf("%d", couts[i][j]);       //pointeur??
@@ -213,8 +220,9 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
           // else {
           //   printf("%d", couts[i][j]);
           // }
-}
 
+          printf("\n");
+}
 
 
 // Definir la fonction 'calculer_chemin_bonus' ici
@@ -222,17 +230,20 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
 // Definir la fonction 'dijkstra' ici
 
 // Definir la fonction 'afficher_direction_suggeree' ici // Boucle qui parcourt le tableau directions [], qui contient (HAUT,BAS,GAUCHE,DROITE)
-void afficher_direction_suggeree(directions[], int nb) {
-  printf("Directions suggérées: ");
-  for (int i = 0; i < nb; i++) {
-        if (directions[i] == HAUT) {
-            printf("Haut ");
-        } else if (directions[i] == BAS) {
-            printf("Bas ");
-        } else if (directions[i] == GAUCHE) {
-            printf("Gauche ");
-        } else if (directions[i] == DROITE) {
-            printf("Droite ");
+void afficher_direction_suggeree(t_directions directions, int nb) {
+            printf("Directions suggérées: ");
+            for (int i = 0; i < nb; i++) {
+                if (directions[i] == HAUT) {
+                    printf("Haut ");
+                } else if (directions[i] == BAS) {
+                    printf("Bas ");
+                } else if (directions[i] == GAUCHE) {
+                    printf("Gauche ");
+                } else if (directions[i] == DROITE) {
+                    printf("Droite ");
+                }
+            }
+            printf("\n");
         }
     }
     printf("\n");
