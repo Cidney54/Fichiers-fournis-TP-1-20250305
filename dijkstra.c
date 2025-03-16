@@ -38,7 +38,6 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
 
-//void initialiser_couts(couts,int joueur_ligne, int joueur_colonne);
 void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne);
 /**
  * @brief Initialise toutes les cases a non visitee.
@@ -68,7 +67,6 @@ void est_case_visitee(t_visites visitees,int case_ligne,int case_colonne);
  * @param case_choisie_colonne l'adresse ou deposer la colonne de la case choisie
  */
 //  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
-//void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *case_choisie_colonne);
 void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees,int *case_choisie_ligne,int *case_choisie_colonne);
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
@@ -118,7 +116,7 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeu
  * @return le nombre de directions proposees par l'algorithme (normalement 4, mais peut etre plus petit)
  */
 //  Ecrire le prototype de la fonction 'calculer_chemin_bonus' ici
-
+void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[]);
 /**
  * @brief Algorithme de Dijkstra pour calculer le plus court chemin en partent de la position du joueur pour atteindre
  * la position de destination.
