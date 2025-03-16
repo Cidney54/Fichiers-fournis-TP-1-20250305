@@ -39,9 +39,9 @@ void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_
  */
 
 int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction) {
-    //int t_terrain[NB_LIGNES][NB_COLONNES];
-    //direction = interaction_demander_direction_deplacement();
+    direction = interaction_demander_direction_deplacement();
 
+    int condition = 1;
     if (direction == DIRECTION_DROITE) {
         *joueur_colonne += 1;
 
@@ -53,38 +53,12 @@ int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction) {
         *joueur_colonne -= 1;
     }
 
-    if (*joueur_ligne > 9 || *joueur_ligne < 0) {
-
-        return false;
+    if (*joueur_ligne > NB_LIGNES || *joueur_ligne < 0) {
+        condition = false;
+    } else if (*joueur_colonne > NB_COLONNES || *joueur_colonne < 0) {
+        condition = false;
     }
-
-    if (*joueur_colonne > 9 || *joueur_colonne < 0) {
-
-        return false;
-    }
-
-    int etat = FALSE;
-    switch (direction) {
-        case DIRECTION_HAUT:
-            *joueur_ligne -= 1;
-            break;
-        case DIRECTION_BAS:
-            *joueur_ligne += 1;
-            break;
-        case DIRECTION_DROITE:
-            *joueur_colonne += 1;
-            break;
-        case DIRECTION_GAUCHE:
-            *joueur_colonne -= 1;
-            break;
-
-    }
-
-    if (((*joueur_ligne >= 0) || (*joueur_ligne < NB_LIGNES)) &&
-        ((*joueur_colonne >= 0) || (*joueur_colonne < NB_COLONNES))) {
-        etat = TRUE;
-    }
-    return etat;
+    return condition;
 }
 
 void tester_jeu_deplacer_joueur() {
