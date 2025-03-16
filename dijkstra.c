@@ -175,8 +175,10 @@ void initialiser_visitees (t_visites visitees, int case_ligne, int case_colonne)
 //parametres case ligne colonne???***************
 
 // Definir la fonction 'est_case_visitee' ici
+void est_case_visitee(t_visites visitees,int case_ligne,int case_colonne){
+    visitees[case_ligne][case_colonne] = 1; // Marque la case comme visite
+}
 
-}// Permet de suivre les cases du terrain que l'algo a deja explorees(chaque cases  est marquees comme visitee ou non)
 
 // Definir la fonction 'choisir_min_dist_non_visitee' ici
 void choisir_min_dist_non_visitee(t_couts couts,t_visites visitees, int *case_choisie_ligne, int*case_choisie_colonne){
