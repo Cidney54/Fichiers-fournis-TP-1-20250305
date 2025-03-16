@@ -163,7 +163,6 @@ void dijkstra_acheter_bonus(int carburant) {        //carb #include jeu.h? carb-
 void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
-
             if (i == joueur_ligne && j == joueur_colonne) {
 
                 couts[i][j] = 0;
@@ -171,6 +170,7 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
             else {
                 couts[i][j] = INT_MAX; // Pour representer le cout infini.
             }
+        }
     }
 }
 
