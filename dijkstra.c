@@ -86,7 +86,7 @@ int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
  * @param courante_colonne la colonne de la position courante a partir de laquelle on regarde les voisins
  */
 //  Ecrire le prototype de la fonction 'maj_voisins' ici
-void maj_voisins(couts,visitees,int terrain[NB_LIGNES][NB_COLONNES],...,int courante_ligne,int courante_colonne);
+void maj_voisins(couts,visitees,int terrain[NB_LIGNES][NB_COLONNES],...,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
 /**
  * @brief Affiche le tableau des couts
  * @name afficher_couts
