@@ -52,7 +52,7 @@ void initialiser_visitees(visitees, case_ligne, case_colonne);
  * @return true si la case a deja ete visitee, false sinon
  */
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
-bool est_case_visitee(visitees, int case_ligne, int case_colonne);
+
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -166,8 +166,7 @@ void initialiser_visitees (visitees, int case_ligne, int case_colonne){
 //parametres case ligne colonne???***************
 
 // Definir la fonction 'est_case_visitee' ici
-bool est_case_visitee(visitees, int case_ligne, int case_colonne){
-    return visitees [case_ligne][case_colonne];
+
 }// Permet de suivre les cases du terrain que l'algo a deja explorees(chaque cases  est marquees comme visitee ou non)
 
 // Definir la fonction 'choisir_min_dist_non_visitee' ici
