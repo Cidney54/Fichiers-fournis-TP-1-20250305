@@ -103,8 +103,8 @@ void tester_jeu_deplacer_joueur() {
 }
 // Definir la fonction 'jeu_init' ici
 
-void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *joueur_carburant,
-              int *destination_ligne, int *destination_colonne) {
+void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *joueur_carburant, int *destination_ligne,
+    int *destination_colonne) {
 
     /* Initialiser les variables. */
     int sortie_ligne; // Ligne de destination de sortie.
