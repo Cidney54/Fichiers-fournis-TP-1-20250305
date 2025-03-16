@@ -139,7 +139,7 @@ int jeu_verifier_choix_deplacement(int choix) {
         return DIRECTION_ERRONEE;
     }
 
-        return choix;
+    return choix;
 }
 // Definir la fonction 'jeu_calculer_voisin' ici
 /**
@@ -200,7 +200,3 @@ int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant,
 }
 
 
-int main() {
-
-
-}
