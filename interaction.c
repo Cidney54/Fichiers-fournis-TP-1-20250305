@@ -176,7 +176,7 @@ int interaction_verifier_choix_action(int action, int carburant) {
     //demande à l'utilisateur son choix
     scanf("%i", &action);
 
-  
+
     if (action == ACTION_DEPLACER) {
         printf("deplacement\n");
         choix_action = ACTION_DEPLACER;
