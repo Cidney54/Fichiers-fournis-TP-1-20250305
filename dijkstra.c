@@ -86,7 +86,7 @@ void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees,int *case_ch
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
 //int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
-int cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
+void cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
  * @name maj_voisins
@@ -200,7 +200,7 @@ void choisir_min_dist_non_visitee(t_couts couts,t_visites visitees, int *case_ch
 }
 
 // Definir la fonction 'cout_deplacement' ici
-int cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int voisin_ligne, int voisin_colonne) {
+void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int voisin_ligne, int voisin_colonne) {
     int carburant = terrain_get_carburant(terrain, voisin_ligne, voisin_colonne);
     int cout_voisin = 1 + (9 - carburant);
     return cout_voisin;
