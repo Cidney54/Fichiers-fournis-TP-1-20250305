@@ -29,14 +29,21 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
 
 int main(void) {
 
-    interaction_presenter_jeu();
+    /* Réinitialiser le générateur de nombre aléatoire. */
+    srand((unsigned int) time(NULL));
+    rand();
 
-    t_terrain terrain = {};
-    int sortie_ligne = 0;
-    int sortie_colonne = 0;
-    int depart_ligne = 0;
-    int depart_colonne = 0;
-    int joueur_carburant = JOUEUR_CARBURANT_INITIAL;
+    /* Initialiser les variables. */
+    t_terrain terrain = {}; // Terrain de jeu.
+    terrain_init(terrain); // Initialiser toutes les cases du terrain à « 0 ».
+    int sortie_ligne = 0; // Ligne de position de sortie.
+    int sortie_colonne = 0; // Colonne de position de sortie.
+    int depart_ligne = 0; // Ligne de position de départ.
+    int depart_colonne = 0; // Colonne de position de départ.
+    int joueur_carburant = JOUEUR_CARBURANT_INITIAL; // Quantité de carburant du joueur.
+
+    /* Présenter du jeu. */
+    interaction_presenter_jeu();
 
 }
 
