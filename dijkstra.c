@@ -130,7 +130,7 @@ void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_
  * @return
  */
 //  Ecrire le prototype de la fonction 'dijkstra' ici
-
+void dijkstra(int terrain [NB_LIGNES][NB_COLONNES] , int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, int directions[]);
 /**
  * @brief Affiche les 4 premieres directions a suivre sur le plus court chemin pour joindre la destination a partir de la position du joueur
  * @name afficher_direction_suggeree
