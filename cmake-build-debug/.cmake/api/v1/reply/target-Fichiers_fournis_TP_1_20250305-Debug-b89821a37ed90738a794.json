@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Fichiers_fournis_TP_1_20250305"
+			"path" : "Fichiers_fournis_TP_1_20250305.exe"
+		},
+		{
+			"path" : "Fichiers_fournis_TP_1_20250305.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -42,14 +45,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/cidneyberlypetitsaint/Desktop/Fichiers fournis TP 1-20250305/."
+					"path" : "C:/Users/willb/CLionProjects/Fichiers-fournis-TP-1-20250305/."
 				}
 			],
 			"language" : "C",
@@ -85,12 +88,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "Fichiers_fournis_TP_1_20250305",
-	"nameOnDisk" : "Fichiers_fournis_TP_1_20250305",
+	"nameOnDisk" : "Fichiers_fournis_TP_1_20250305.exe",
 	"paths" : 
 	{
 		"build" : ".",

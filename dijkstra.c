@@ -7,15 +7,13 @@
 #include <stdio.h>
 #include <terrain.c>
 
-/*
+
 
 //  ****************************
 //  Definitions des types prives
 //  ****************************
 //  Type pour le tableau des couts qui donne le cout en carburant du plus court chemin du depart a l'une des cases du terrain
 typedef int t_couts[NB_LIGNES][NB_COLONNES];
-
-
 
 //  Type pour le tableau 2D permettant de savoir si une case a deja ete visitee lors de l'algorithme de Dijkstra
 typedef bool t_visites[NB_LIGNES][NB_COLONNES];
@@ -27,15 +25,17 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 //  Declarations des fonctions privees
 //  **********************************
 
+/**
  * @brief Initialise tous les couts avec le plus grand entier du type int.
  * Initialise egalement le cout de la case du joueur a 0.
  * @name initialiser_couts
  * @param couts le tableau bi-dimensionnel des couts a initialiser
  * @param joueur_ligne la ligne ou se trouve le joueur
  * @param joueur_colonne la colonne ou se trouve le joueur
- */
+*/
+
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
-void initialiser_couts(int couts,int joueur_ligne, int joueur_colonne);
+void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne);
 /**
  * @brief Initialise toutes les cases a non visitee.
  * @name initialiser_visitees
