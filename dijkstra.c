@@ -287,6 +287,7 @@ void afficher_direction_suggeree(directions[], int nb) {
 void afficher_direction_suggeree(t_direction directions, int nb) {
       //loop de 4?
       //fct cout deplacement?
+    //fct jeu.h??
             printf("Directions suggérées: ");
       for (int i = 0; i < NB_LIGNES; i++) {
           for (int j = 0; j < NB_COLONNES; j++)
