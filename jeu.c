@@ -131,22 +131,15 @@ void jeu_afficher_direction(t_direction direction) {
  * @return DIRECTION_ERRONEE si la chaine ne correspond pas a l'une des 4 directions.
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
-int jeu_verifier_choix_deplacement(char choix[]) {
-
-    int etat = DIRECTION_ERRONEE;
+int jeu_verifier_choix_deplacement(int choix) {
 
     // choix = (choix);
-    if (strcmp(choix, "haut") == 0) {
-        etat = DIRECTION_HAUT;
-    } else if (strcmp(choix, "bas") == 0) {
-        etat = DIRECTION_BAS;
-    } else if (strcmp(choix, "droite") == 0) {
-        etat = DIRECTION_DROITE;
-    } else if (strcmp(choix, "gauche") == 0) {
-        etat = DIRECTION_GAUCHE;
+    if (choix != DIRECTION_HAUT && choix != DIRECTION_BAS && choix != DIRECTION_DROITE && choix != DIRECTION_GAUCHE) {
+
+        return DIRECTION_ERRONEE;
     }
 
-    return etat;
+        return choix;
 }
 // Definir la fonction 'jeu_calculer_voisin' ici
 /**

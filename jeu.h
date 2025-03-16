@@ -92,7 +92,7 @@ void jeu_afficher_direction(int direction);
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
 //  Ecrire le prototype de la fonction 'jeu_verifier_choix_deplacement' ici
-int jeu_verifier_choix_deplacement(char choix[]);
+int jeu_verifier_choix_deplacement(int choix);
 
 /**
  * @brief Calcule la position d'un voisin dans une direction donnee.
