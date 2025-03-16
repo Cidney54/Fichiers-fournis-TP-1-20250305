@@ -187,24 +187,25 @@ i * @name interaction_verifier_choix_actionnt main() {
 } */
 
 int interaction_verifier_choix_action(int action, int carburant) {
-    int choix_action;
+    int choix_action = 0;
     scanf("%i", &action);
+
     if (action == ACTION_DEPLACER) {
-        printf("deplacement");
-        return ACTION_DEPLACER;
+        printf("deplacement\n");
+        choix_action = ACTION_DEPLACER;
+    } else if (action == ACTION_ACHETER_BONUS) {
+        printf("achat bonus\n");
+        choix_action = ACTION_ACHETER_BONUS;
+    } else if (action == ACTION_QUITTER) {
+        printf("quitte\n");
+        choix_action = ACTION_QUITTER;
+    } else {
+        printf("erroné\n");
+        choix_action = ACTION_INVALIDE;
     }
-    if (action == ACTION_ACHETER_BONUS) {
-        printf("achat bonus");
-        return ACTION_ACHETER_BONUS;
-    }
-    if (action == ACTION_QUITTER) {
-        printf("quitte");
-        return ACTION_QUITTER;
-    }
-    // if (action != ACTION_DEPLACER, ACTION_ACHETER_BONUS, ACTION_QUITTER) {
-    //   printf("invalide");
-    return ACTION_INVALIDE;
-    //}
+
+    return choix_action;
 }
+
 
 
