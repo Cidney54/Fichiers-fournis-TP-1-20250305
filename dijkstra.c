@@ -57,12 +57,7 @@ void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
  * @return true si la case a deja ete visitee, false sinon
  */
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
-<<<<<<< HEAD
-//bool est_case_visitee(visitees, int case_ligne, int case_colonne);
-
-=======
-void est
->>>>>>> 7b378545e08588fb25efbe6b94fe06239c6fe362
+void est_case_visitee(t_visites visitees,int case_ligne,int case_colonne);
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -85,7 +80,7 @@ void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees,int *case_ch
  * @note le cout pour aller d'une case a l'une de ses voisines est 1 + (9 - carburant dans la case voisine)
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
-//int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
+
 void cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
