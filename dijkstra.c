@@ -1,11 +1,12 @@
 //
 // Created by stephane on 08/01/25.
 //
-#include "dijsktra.h"
+#include "dijkstra.h"
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <terrain.c>
+
 
 /*
 
@@ -35,14 +36,15 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
-void initialiser_couts(couts,int joueur_ligne, int joueur_colonne); 
+
+//void initialiser_couts(couts,int joueur_ligne, int joueur_colonne);
 /**
  * @brief Initialise toutes les cases a non visitee.
  * @name initialiser_visitees
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
-void initialiser_visitees(visitees, case_ligne, case_colonne);
+//void initialiser_visitees(visitees, case_ligne, case_colonne);
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
  * @name est_case_visitee
@@ -52,7 +54,7 @@ void initialiser_visitees(visitees, case_ligne, case_colonne);
  * @return true si la case a deja ete visitee, false sinon
  */
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
-bool est_case_visitee(visitees, int case_ligne, int case_colonne);
+//bool est_case_visitee(visitees, int case_ligne, int case_colonne);
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -63,7 +65,7 @@ bool est_case_visitee(visitees, int case_ligne, int case_colonne);
  * @param case_choisie_colonne l'adresse ou deposer la colonne de la case choisie
  */
 //  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *case_choisie_colonne);
+//void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *case_choisie_colonne);
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
  * @name cout_deplacement
@@ -74,7 +76,7 @@ void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *c
  * @note le cout pour aller d'une case a l'une de ses voisines est 1 + (9 - carburant dans la case voisine)
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
-int cout_deplacement(couts, int voisin_ligne, int voisin_colonne) 
+//int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
  * @name maj_voisins
@@ -133,6 +135,9 @@ int cout_deplacement(couts, int voisin_ligne, int voisin_colonne)
  * @param nb le nombre de directions a suivre
  */
 //  Ecrire le prototype de la fonction 'afficher_direction_suggeree' ici
+
+
+/*
 void afficher_direction_suggeree(directions[], int nb);
 //  ***********************************
 //  Definitions des fonctions publiques
@@ -232,3 +237,4 @@ void afficher_direction_suggeree(directions[], int nb) {
     }
     printf("\n");
 }
+*/
