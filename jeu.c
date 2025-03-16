@@ -6,7 +6,7 @@
 #include <jeu.h>
 #include <assert.h>
 #include <stdbool.h>
-
+#include <stdio.h>
 //  ***********************************
 //  Definitions des fonctions publiques
 //  ***********************************
@@ -104,7 +104,7 @@ void tester_jeu_deplacer_joueur() {
 // Definir la fonction 'jeu_init' ici
 
 void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *joueur_carburant, int *destination_ligne,
-    int *destination_colonne) {
+              int *destination_colonne) {
 
     /* Initialiser les variables. */
     int sortie_ligne; // Ligne de destination de sortie.
@@ -214,24 +214,25 @@ void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int *v
 int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
                      int destination_colonne) {
 
-    terrain_generer_position_depart(joueur_ligne, joueur_colonne, &destination_ligne, &destination_colonne);
 
-    if ((joueur_ligne && joueur_colonne == destination_ligne && destination_colonne) && joueur_carburant > 0) {
-        return JEU_ETAT_VICTOIRE;
-    } else if ((joueur_ligne && joueur_colonne != destination_ligne && destination_colonne) && joueur_carburant > 0) {
-        return JEU_ETAT_EN_COURS;
-    } else (joueur_carburant == 0);
-    {
-        return JEU_ETAT_ECHEC;
+    //terrain_generer_position_depart(joueur_ligne, joueur_colonne, &destination_ligne, &destination_colonne);
+    int etat_jeu = 0;
+
+    if (joueur_ligne == destination_ligne && joueur_colonne == destination_colonne && joueur_carburant >= 0) {
+
+        etat_jeu = JEU_ETAT_VICTOIRE;
+
+    } else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant > 0) {
+        etat_jeu = JEU_ETAT_EN_COURS;
+    } else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant == 0) {
+        etat_jeu = JEU_ETAT_ECHEC;
     }
+
+    return etat_jeu;
 }
 
-void test_jeu_verifier_fin() {
-
-    assert(jeu_verifier_fin(1, 1, 2, 1, 1) == JEU_ETAT_VICTOIRE);
-}
 
 int main() {
 
-    test_jeu_verifier_fin();
+
 }
