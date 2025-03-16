@@ -73,7 +73,7 @@ int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction);
  */
 //  Ecrire le prototype de la fonction 'jeu_init' ici
 void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *joueur_carburant, int *destination_ligne,
-    int *destination_colonne);
+              int *destination_colonne);
 
 /**
  * @brief Affiche une direction en toutes lettres
@@ -92,7 +92,7 @@ void jeu_afficher_direction(int direction);
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
 //  Ecrire le prototype de la fonction 'jeu_verifier_choix_deplacement' ici
-int jeu_verifier_choix_deplacement(int choix);
+int jeu_verifier_choix_deplacement(char choix[]);
 
 /**
  * @brief Calcule la position d'un voisin dans une direction donnee.

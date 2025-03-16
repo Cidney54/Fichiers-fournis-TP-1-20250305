@@ -7,6 +7,7 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 //  ***********************************
 //  Definitions des fonctions publiques
 //  ***********************************
@@ -41,10 +42,9 @@ void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_
 int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction) {
     direction = interaction_demander_direction_deplacement();
 
-    int condition = 1;
+    int condition = true;
     if (direction == DIRECTION_DROITE) {
         *joueur_colonne += 1;
-
     } else if (direction == DIRECTION_BAS) {
         *joueur_ligne -= 1;
     } else if (direction == DIRECTION_HAUT) {
@@ -61,20 +61,6 @@ int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction) {
     return condition;
 }
 
-void tester_jeu_deplacer_joueur() {
-
-
-    int joueur_ligne = 0;
-    int joueur_colonne = 0;
-    int t_terrain[joueur_ligne][joueur_colonne];
-    int direction;
-
-
-    assert(jeu_deplacer_joueur(&joueur_ligne, &joueur_colonne, direction) !=
-           joueur_colonne + 1);
-    printf("%i", joueur_colonne);
-
-}
 // Definir la fonction 'jeu_init' ici
 
 void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *joueur_carburant, int *destination_ligne,
@@ -120,26 +106,19 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
  * @name jeu_afficher_direction
  * @param direction la direction a afficher
  */
-void jeu_afficher_direction(int direction) {
-    direction = interaction_demander_direction_deplacement();
+void jeu_afficher_direction(t_direction direction) {
 
     if (direction == DIRECTION_DROITE) {
         printf("Droite\n");
-    }
-    if (direction == DIRECTION_GAUCHE) {
+    } else if (direction == DIRECTION_GAUCHE) {
         printf("Gauche\n");
-    }
-    if (direction == DIRECTION_HAUT) {
+    } else if (direction == DIRECTION_HAUT) {
         printf("Haut\n");
-    }
-    if (direction == DIRECTION_BAS) {
+    } else if (direction == DIRECTION_BAS) {
         printf("Bas\n");
-    }
-    if (direction > 3 || direction < 0) {
+    } else {
         printf("erroné");
     }
-
-
 }
 
 
@@ -152,9 +131,22 @@ void jeu_afficher_direction(int direction) {
  * @return DIRECTION_ERRONEE si la chaine ne correspond pas a l'une des 4 directions.
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
-int jeu_verifier_choix_deplacement(int choix) {
+int jeu_verifier_choix_deplacement(char choix[]) {
 
+    int etat = DIRECTION_ERRONEE;
 
+    // choix = (choix);
+    if (strcmp(choix, "haut") == 0) {
+        etat = DIRECTION_HAUT;
+    } else if (strcmp(choix, "bas") == 0) {
+        etat = DIRECTION_BAS;
+    } else if (strcmp(choix, "droite") == 0) {
+        etat = DIRECTION_DROITE;
+    } else if (strcmp(choix, "gauche") == 0) {
+        etat = DIRECTION_GAUCHE;
+    }
+
+    return etat;
 }
 // Definir la fonction 'jeu_calculer_voisin' ici
 /**
@@ -188,20 +180,16 @@ void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int *v
 int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
                      int destination_colonne) {
 
-
     //terrain_generer_position_depart(joueur_ligne, joueur_colonne, &destination_ligne, &destination_colonne);
     int etat_jeu = 0;
 
     if (joueur_ligne == destination_ligne && joueur_colonne == destination_colonne && joueur_carburant >= 0) {
-
         etat_jeu = JEU_ETAT_VICTOIRE;
-
     } else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant > 0) {
         etat_jeu = JEU_ETAT_EN_COURS;
     } else if (joueur_ligne != destination_ligne && joueur_colonne != destination_colonne && joueur_carburant == 0) {
         etat_jeu = JEU_ETAT_ECHEC;
     }
-
     return etat_jeu;
 }
 
