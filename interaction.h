@@ -1,9 +1,6 @@
 //
 // Created by stephane on 09/01/25.
 //
-#include <stdlib.h>
-#include <stdio.h>
-#include <couleur.h>
 
 #ifndef CODE_INTERACTION_H
 #define CODE_INTERACTION_H
@@ -24,8 +21,6 @@ typedef enum {
 //  Ecrire le prototype de la fonction 'interaction_presenter_jeu' ici
 
 void interaction_presenter_jeu();
-
-
 
 /**
  * @brief Affiche les options du menu de jeu.

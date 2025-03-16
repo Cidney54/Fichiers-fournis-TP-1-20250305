@@ -45,6 +45,11 @@ int main(void) {
     /* Présenter du jeu. */
     interaction_presenter_jeu();
 
+    /* Initialiser l'interface du jeu (positions de sortie et de départ, le tableau et le menu d'option). */
+    jeu_init(terrain, &depart_ligne, &depart_colonne, &joueur_carburant, &sortie_colonne, &sortie_ligne);
+
+    jeu_executer(terrain,depart_ligne,depart_colonne,joueur_carburant,sortie_ligne,sortie_colonne);
+
 }
 
 /*
