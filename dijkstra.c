@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "terrain.h"
+#include "jeu.h"
 
 
 
@@ -269,4 +270,27 @@ void afficher_direction_suggeree(directions[], int nb) {
     }
     printf("\n");
 }
+void afficher_direction_suggeree(t_direction directions, int nb) {
+      //loop de 4?
+      //fct cout deplacement?
+            printf("Directions suggérées: ");
+      for (int i = 0; i < NB_LIGNES; i++) {
+          for (int j = 0; j < NB_COLONNES; j++)
+            // for (int i = 0; i < 4; i++) {
+                if (t_direction[i] == 2) {
+                    printf("Haut ");
+                } else if (t_direction == 1) {
+                    printf("Bas ");
+                } else if (t_direction[i] == 3) {
+                    printf("Gauche ");
+                } else if (t_direction[i] == 0) {
+                    printf("Droite ");
+                }
+            }
+
+            else {
+                printf("direction erronée"); //??
+            }
+            printf("\n");
+        }
 
