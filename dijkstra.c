@@ -170,6 +170,7 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
             }
             else {
                 couts[i][j] = INT_MAX; // Pour representer le cout infini.
+            }
     }
 }
 
