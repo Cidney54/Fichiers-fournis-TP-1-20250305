@@ -203,7 +203,6 @@ void choisir_min_dist_non_visitee(t_couts couts,t_visites visitees, int *case_ch
 void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int voisin_ligne, int voisin_colonne) {
     int carburant = terrain_get_carburant(terrain, voisin_ligne, voisin_colonne);
     int cout_voisin = 1 + (9 - carburant);
-    return cout_voisin;
 }
 // Definir la fonction 'maj_voisins' ici
 
