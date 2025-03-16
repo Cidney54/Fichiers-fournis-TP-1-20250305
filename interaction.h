@@ -75,5 +75,6 @@ void interaction_afficher_victoire(int carburant);
  * @return action si elle est correcte, ACTION_INVALIDE sinon
  */
 //  Ecrire le prototype de la fonction 'interaction_verifier_choix_action' ici
+int interaction_verifier_choix_action(int action, int carburant);
 
 #endif //CODE_INTERACTION_H
