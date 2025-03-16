@@ -72,8 +72,8 @@ int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction);
  * @param destination_colonne l'adresse de la colonne de la case a atteindre
  */
 //  Ecrire le prototype de la fonction 'jeu_init' ici
-void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int *joueur_colonne, int *joueur_carburant,
-              int *destination_ligne, int *destination_colonne);
+void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *joueur_carburant, int *destination_ligne,
+    int *destination_colonne);
 
 /**
  * @brief Affiche une direction en toutes lettres
