@@ -119,6 +119,7 @@ int interaction_demander_direction_deplacement() {
 
     int i;
 
+
     printf("veuillez choisir une direct: \n");
     printf("1. droite\n");
     printf("2. gauche\n");
@@ -127,23 +128,23 @@ int interaction_demander_direction_deplacement() {
     scanf("%i", &i);
 
     if (i == 1) {
-        printf("droite\n");
+
         return DIRECTION_DROITE;
     }
     if (i == 2) {
-        printf("gauche\n");
+
         return DIRECTION_GAUCHE;
     }
     if (i == 3) {
-        printf("haut\n");
+
         return DIRECTION_HAUT;
     }
     if (i == 4) {
-        printf("bas\n");
+
         return DIRECTION_BAS;
     }
     if (i > 4 || i <= 0) {
-        printf("Erronee");
+
         return DIRECTION_ERRONEE;
     }
 
@@ -210,6 +211,3 @@ int interaction_verifier_choix_action(int action, int carburant) {
 }
 
 
-int main() {
-    printf("hello world");
-}

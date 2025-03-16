@@ -9,6 +9,9 @@
 #define COUT_DEPLACEMENT_VOISIN     1
 #define BONUS_CARBURANT             5
 #define TOTAL_CARBURANT_NIVEAU_1    100
+#define TRUE 0
+#define FALSE 1
+
 #include "terrain.h"
 
 //  *****************************
@@ -43,6 +46,8 @@ typedef enum {
  * @param terrain le terrain sur lequel le joueur s'est deplace
  */
 //  Ecrire le prototype de la fonction 'jeu_maj_carburant_joueur' ici
+void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_carburant,
+                              int terrain[NB_LIGNES][NB_COLONNES]);
 
 /**
  * @brief Deplace le joueur dans une dircetion donnee.
@@ -53,6 +58,7 @@ typedef enum {
  * @return true si le deplacement a pu se faire dans les lilmites du terrain, false sinon
  */
 //  Ecrire le prototype de la fonction 'jeu_deplacer_joueur' ici
+int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, int direction);
 
 /**
  * @brief Initialise le terrain de jeu avec les stations de gas.
@@ -66,8 +72,8 @@ typedef enum {
  * @param destination_colonne l'adresse de la colonne de la case a atteindre
  */
 //  Ecrire le prototype de la fonction 'jeu_init' ici
-void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *joueur_carburant, int *destination_ligne,
-    int *destination_colonne);
+void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int *joueur_colonne, int *joueur_carburant,
+              int *destination_ligne, int *destination_colonne);
 
 /**
  * @brief Affiche une direction en toutes lettres
@@ -75,6 +81,7 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
  * @param direction la direction a afficher
  */
 //  Ecrire le prototype de la fonction 'jeu_afficher_direction' ici
+void jeu_afficher_direction(int direction);
 
 /**
  * @brief Recupere une direction saisie sous la forme d'une chaine de caracteres,
@@ -85,6 +92,7 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
 //  Ecrire le prototype de la fonction 'jeu_verifier_choix_deplacement' ici
+int jeu_verifier_choix_deplacement(int choix);
 
 /**
  * @brief Calcule la position d'un voisin dans une direction donnee.
@@ -96,7 +104,7 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
  * @param voisin_colonne l'adresse ou placer la colonne du voisin selon la direction
  */
 //  Ecrire le prototype de la fonction 'jeu_calculer_voisin' ici
-
+void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int *voisin_ligne, int *voisin_colonne);
 /**
  * @brief Verifie si le jeu est termine ou non.
  * @name jeu_verifier_fin
@@ -110,5 +118,8 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
  * JEU_ETAT_EN_COURS si la partie est en cours.
  */
 //  Ecrire le prototype de la fonction 'jeu_verifier_fin' ici
+int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
+                     int destination_colonne);
+
 
 #endif //CODE_JEU_H
