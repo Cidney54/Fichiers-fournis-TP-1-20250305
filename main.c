@@ -48,34 +48,56 @@ int main(void) {
     /* Initialiser l'interface du jeu (positions de sortie et de départ, le tableau et le menu d'option). */
     jeu_init(terrain, &depart_ligne, &depart_colonne, &joueur_carburant, &sortie_colonne, &sortie_ligne);
 
+    /* Démarrer le jeu pour l'utilisateur. */
     jeu_executer(terrain,depart_ligne,depart_colonne,joueur_carburant,sortie_ligne,sortie_colonne);
 
-}
-
-/*
-int main(void) {
-    srand((unsigned int) time(NULL));        // ligne qui sert à genéré le chiffre aléatoire
-    rand();                                 // ligne qui sert à genéré le chiffre aléatoire
-
-
-    //  Les donnees du jeu : terrain, joueur, case de sortie
-    t_terrain terrain;
-    int joueur_ligne, joueur_colonne, joueur_carburant; //  le joueur
-    int destination_ligne, destination_colonne; //  la case de destination
-
-    //  initialisation du jeu
-    jeu_init(terrain, &joueur_ligne, &joueur_colonne, &joueur_carburant, &destination_ligne, &destination_colonne);
-
-    //  Presentation du jeu
-    interaction_presenter_jeu();
-
-    //  Boucle principale du jeu
-    //jeu_executer(terrain, joueur_ligne, joueur_colonne, joueur_carburant, destination_ligne, destination_colonne);
-
     return 0;
-} */
+
+}
 
 //  ********************************************
 //  Definitions des fonctions autres que le main
 //  ********************************************
 // Definir la fonction 'jeu_executer' ici */
+
+void jeu_exectuer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
+    int destination_colonne) {
+
+    t_jeu_etat jeu_etat = JEU_ETAT_EN_COURS;
+    int voisin_ligne,
+    voisin_colonne;
+
+    while (jeu_etat == JEU_ETAT_EN_COURS) {
+
+        t_action action = interaction_demander_action(joueur_carburant);
+        action = interaction_verifier_choix_action(action, joueur_carburant);
+
+        switch (action) {
+
+            case ACTION_DEPLACER:
+                t_direction direction = DIRECTION_ERRONEE;
+
+                while (direction == DIRECTION_ERRONEE) {
+                    direction = interaction_demander_direction_deplacement();
+                    direction = jeu_verifier_choix_deplacement(direction);
+                }
+
+                jeu_calculer_voisin(joueur_ligne,joueur_colonne,direction,&voisin_ligne, &voisin_colonne);
+
+                joueur_ligne = voisin_ligne;
+                joueur_colonne = voisin_colonne;
+
+                jeu_maj_carburant_joueur(joueur_ligne,joueur_colonne,&joueur_carburant,terrain);
+
+                jeu_etat = jeu_verifier_fin(joueur_ligne,joueur_colonne,joueur_carburant,destination_ligne,
+                    destination_colonne);
+
+            case ACTION_ACHETER_BONUS:
+                printf("ok");
+            case ACTION_QUITTER:
+                printf("ok");
+            default:
+
+        }
+    }
+}
