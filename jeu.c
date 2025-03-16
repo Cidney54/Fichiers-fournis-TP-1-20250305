@@ -21,11 +21,11 @@
  * @param terrain le terrain sur lequel le joueur s'est deplace
  */
 void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_carburant,
-                              int t_terrain[NB_LIGNES][NB_COLONNES]) {
+                              t_terrain terrain) {
 
-    *joueur_carburant += terrain_get_carburant(t_terrain, joueur_ligne, joueur_colonne);
+    *joueur_carburant += terrain_get_carburant(terrain, joueur_ligne, joueur_colonne);
     *joueur_carburant -= COUT_DEPLACEMENT_VOISIN;
-    terrain_set_carburant(t_terrain, joueur_ligne, joueur_colonne, 0);
+    terrain_set_carburant(terrain, joueur_ligne, joueur_colonne, 0);
 
 }
 // Definir la fonction 'jeu_deplacer_joueur' ici
