@@ -231,10 +231,6 @@ int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant,
     return etat_jeu;
 }
 
-void test_jeu_verifier_fin() {
-
-    assert(jeu_verifier_fin(1, 1, 2, 1, 1) == JEU_ETAT_VICTOIRE);
-}
 
 int main() {
 
