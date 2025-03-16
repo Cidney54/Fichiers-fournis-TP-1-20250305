@@ -52,7 +52,7 @@ void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
  * @return true si la case a deja ete visitee, false sinon
  */
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
-
+void est
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -98,7 +98,7 @@ void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLO
  * @param destination_colonne la colonne de la position a atteindre
  */
 //  Ecrire le prototype de la fonction 'afficher_couts' ici
-
+void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeur_colonne, int destination_ligne, int destination_colonne);
 /**
  * @brief Calcule les 4 premieres cases du plus court chemin en terme de carburant
  * @name calculer_chemin_bonus
@@ -194,7 +194,7 @@ int cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int voi
 
 // Definir la fonction 'afficher_couts' ici
 
-int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
+void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeur_colonne, int destination_ligne, int destination_colonne) {
   for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
           if (i == joueur_ligne && j == joueur_colonne) {
