@@ -147,6 +147,18 @@ void afficher_direction_suggeree(directions[], int nb);
 //  Definitions des fonctions publiques
 //  ***********************************
 // Definir la fonction 'dijkstra_acheter_bonus' ici
+void dijkstra_acheter_bonus(int carburant) {        //carb #include jeu.h? carb->tot joueur ????
+    if (carburant >= 10) {
+        carburant = carburant - 10;                            //carburant erreur??
+        printf("%d", afficher_direction_suggeree(directions[], nb));    //%?? // parametre??
+        //carb-10
+        //printf fct afficher d sugg 
+    }
+    else {
+        printf("Vous n'avez pas assez de carburant pour acheter un bonus...");
+    }
+
+  }
 
 //  *********************************
 //  Definitions des fonctions privees
@@ -248,6 +260,8 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joue
 
 
 // Definir la fonction 'calculer_chemin_bonus' ici
+      void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[]) {
+          
 
 // Definir la fonction 'dijkstra' ici
 
