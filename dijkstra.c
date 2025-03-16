@@ -41,7 +41,6 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne);
  * @name initialiser_visitees
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
-
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
 void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
 /**
@@ -64,7 +63,7 @@ void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
  * @param case_choisie_colonne l'adresse ou deposer la colonne de la case choisie
  */
 //  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *case_choisie_colonne);
+void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees,int *case_choisie_ligne,int *case_choisie_colonne);
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
  * @name cout_deplacement
@@ -75,7 +74,7 @@ void choisir_min_dist_non_visitee(couts, visitees,int *case_choisie_ligne,int *c
  * @note le cout pour aller d'une case a l'une de ses voisines est 1 + (9 - carburant dans la case voisine)
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
-int cout_deplacement(int couts, int voisin_ligne, int voisin_colonne);
+int cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
  * @name maj_voisins
@@ -87,7 +86,7 @@ int cout_deplacement(int couts, int voisin_ligne, int voisin_colonne);
  * @param courante_colonne la colonne de la position courante a partir de laquelle on regarde les voisins
  */
 //  Ecrire le prototype de la fonction 'maj_voisins' ici
-void maj_voisins(couts,visitees,int terrain[NB_LIGNES][NB_COLONNES],int precedents,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
+void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
 /**
  * @brief Affiche le tableau des couts
  * @name afficher_couts
@@ -157,7 +156,7 @@ int l_dep, c_dep;
 }
 
 // Definir la fonction 'initialiser_visitees' ici
-void initialiser_visitees (visitees, int case_ligne, int case_colonne){
+void initialiser_visitees (t_visites visitees, int case_ligne, int case_colonne){
   //Initialise toutes les cases comme non visitees
   for (int i=0; i< NB_LIGNES; i++) {
       for (int j= 0; j < NB_COLONNES; j++) {
@@ -172,7 +171,7 @@ void initialiser_visitees (visitees, int case_ligne, int case_colonne){
 }// Permet de suivre les cases du terrain que l'algo a deja explorees(chaque cases  est marquees comme visitee ou non)
 
 // Definir la fonction 'choisir_min_dist_non_visitee' ici
-void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*case_choisie_colonne){
+void choisir_min_dist_non_visitee(t_couts couts,t_visites visitees, int *case_choisie_ligne, int*case_choisie_colonne){
     int min_cout = INT_MAX;
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
@@ -186,7 +185,7 @@ void choisir_min_dist_non_visitee(couts, visitees, int *case_choisie_ligne, int*
 }
 
 // Definir la fonction 'cout_deplacement' ici
-int cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], int couts, int voisin_ligne, int voisin_colonne) {
+int cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int voisin_ligne, int voisin_colonne) {
     int carburant = terrain_get_carburant(terrain, voisin_ligne, voisin_colonne);
     int cout_voisin = 1 + (9 - carburant);
     return cout_voisin;
@@ -220,7 +219,7 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
 // Definir la fonction 'dijkstra' ici
 
 // Definir la fonction 'afficher_direction_suggeree' ici // Boucle qui parcourt le tableau directions [], qui contient (HAUT,BAS,GAUCHE,DROITE)
-void afficher_direction_suggeree(int directions[], int nb) {
+void afficher_direction_suggeree(t_directions directions, int nb) {
             printf("Directions suggérées: ");
             for (int i = 0; i < nb; i++) {
                 if (directions[i] == HAUT) {
