@@ -143,12 +143,13 @@ void afficher_direction_suggeree(directions[], int nb);
 //  Definitions des fonctions privees
 //  *********************************
 // Definir la fonction 'initialiser_couts' ici
-void initialiser_couts(couts, int joueur_ligne, int joueur_colonne) {
-for (int i=0; i< NB_LIGNES; i++){
-  for (int j=0; j< NB_COLONNES; j++) {
-      couts [i][j] = INT_MAX; // Valeur maximale pour representer le cout infini
-  }
+void initialiser_couts(int couts[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne) {
+    for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+            couts[i][j] = INT_MAX; // pour reprensenter cout infini
+    }
 }
+
 int l_dep, c_dep;
     t_couts[l_dep][c_dep] = 0;  //  initialisation de la case de depart
 //*****************************************???
