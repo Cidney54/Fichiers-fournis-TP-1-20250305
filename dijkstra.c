@@ -147,7 +147,7 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joeu
 //  Ecrire le prototype de la fonction 'afficher_direction_suggeree' ici
 
 
-/*
+
 void afficher_direction_suggeree(directions[], int nb);
 //  ***********************************
 //  Definitions des fonctions publiques
@@ -252,4 +252,4 @@ void afficher_direction_suggeree(directions[], int nb) {
     }
     printf("\n");
 }
-*/
+
