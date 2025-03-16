@@ -147,8 +147,10 @@ void afficher_direction_suggeree(directions[], int nb);
 //  Definitions des fonctions publiques
 //  ***********************************
 // Definir la fonction 'dijkstra_acheter_bonus' ici
-void dijkstra_acheter_bonus(int carburant) {
+void dijkstra_acheter_bonus(int carburant) {        //carb #include jeu.h? carb->tot joueur ????
     if (carburant >= 10) {
+        carburant = carburant - 10;                            //carburant erreur??
+        printf("%d", afficher_direction_suggeree(directions[], nb));    //%?? // parametre??
         //carb-10
         //printf fct afficher d sugg 
     }
