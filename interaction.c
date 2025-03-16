@@ -187,7 +187,7 @@ i * @name interaction_verifier_choix_actionnt main() {
 } */
 
 int interaction_verifier_choix_action(int action, int carburant) {
-
+    int choix_action;
     scanf("%i", &action);
     if (action == ACTION_DEPLACER) {
         printf("deplacement");
