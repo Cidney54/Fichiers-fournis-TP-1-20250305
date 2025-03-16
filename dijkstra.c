@@ -219,7 +219,7 @@ int afficher_couts(couts[NB_LIGNES][NB_COLONNES], visitees[NB_LIGNES][NB_COLONNE
 // Definir la fonction 'dijkstra' ici
 
 // Definir la fonction 'afficher_direction_suggeree' ici // Boucle qui parcourt le tableau directions [], qui contient (HAUT,BAS,GAUCHE,DROITE)
-void afficher_direction_suggeree(t_directions directions, int nb) {
+void afficher_direction_suggeree(directions[], int nb) {
             printf("Directions suggérées: ");
             for (int i = 0; i < nb; i++) {
                 if (directions[i] == HAUT) {
