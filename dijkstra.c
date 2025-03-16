@@ -163,12 +163,19 @@ void dijkstra_acheter_bonus(int carburant) {        //carb #include jeu.h? carb-
 void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
-            couts[i][j] = INT_MAX; // pour reprensenter cout infini
+            if (i == joueur_ligne && j == joueur_colonne) {
+
+                couts[i][j] = 0;
+            }
+            else {
+                couts[i][j] = INT_MAX; // Pour representer le cout infini.
+            }
+        }
     }
 }
 
-int l_dep, c_dep;
-    t_couts[l_dep][c_dep] = 0;  //  initialisation de la case de depart
+//int l_dep, c_dep;
+    //t_couts[l_dep][c_dep] = 0;  //  initialisation de la case de depart
 //*****************************************???
 }
 
@@ -227,7 +234,7 @@ void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLO
                 // mis a jour du nouveau prix
                 if (nouveau_cout < couts[voisin_ligne][voisin_colonne]) {
                     couts[voisin_ligne][voisin_colonne] = nouveau_cout; // mise a jour du prix
-                    precedents[voisin_ligne][voisin_colonne] = (courante_ligne * NB_COLONNES) + courante_colonne; // mis a jour du precedent
+                 
                 }
             }
         }
