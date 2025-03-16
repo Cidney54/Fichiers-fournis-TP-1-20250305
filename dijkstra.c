@@ -200,7 +200,30 @@ void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int vo
     int cout_voisin = 1 + (9 - carburant);
 }
 // Definir la fonction 'maj_voisins' ici
+void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne){
+    // Iteration des voisins possibles(HAUT, BAS, GAUCHE, DROITE)
+    int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // (directions_lignes, directions_colonnes) voisins
 
+    for (int i = 0; i < 4; i++) {
+        int voisin_ligne = courante_ligne + directions[i][0];
+        int voisin_colonne = courante_colonne + directions[i][1]; 
+
+        // Verifie que les voisins sont dans dans la zone permise
+        if (voisin_ligne >= 0 && voisin_ligne < NB_LIGNES && voisin_colonne >= 0 && voisin_colonne < NB_COLONNES) {
+            // Verifie que les voisins n'ont pas ete visites
+            if (visitees[voisin_ligne][voisin_colonne] == 0) {
+                // calcule le cout pour aller au voisin (depend du terrain)
+                int nouveau_cout = couts[courante_ligne][courante_colonne] + terrain[voisin_ligne][voisin_colonne];
+
+                // mis a jour du nouveau prix
+                if (nouveau_cout < couts[voisin_ligne][voisin_colonne]) {
+                    couts[voisin_ligne][voisin_colonne] = nouveau_cout; // mise a jour du prix
+                    precedents[voisin_ligne][voisin_colonne] = (courante_ligne * NB_COLONNES) + courante_colonne; // mis a jour du precedent
+                }
+            }
+        }
+    }
+}
 // Definir la fonction 'afficher_couts' ici
 
 void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
