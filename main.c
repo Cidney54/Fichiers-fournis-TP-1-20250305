@@ -1,4 +1,5 @@
 
+#include "dijkstra.h"
 #include "interaction.h"
 #include "jeu.h"
 #include "stdio.h"
@@ -60,13 +61,13 @@ int main(void) {
 //  ********************************************
 // Definir la fonction 'jeu_executer' ici */
 
-void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int joueur_carburant, int destination_ligne,
-    int destination_colonne) {
+void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int joueur_carburant,
+    const int destination_ligne, const int destination_colonne) {
 
     /* Initialiser les variables d'éxécution de jeu. */
     t_jeu_etat jeu_etat = JEU_ETAT_EN_COURS; // L'état du jeu.
-    int voisin_ligne, // La ligne de la case dans laquelle le joueur veut se déplacer.
-    voisin_colonne; // La colonne de la case dans laquelle le joueur veut se déplacer.
+    int voisin_ligne, // La ligne de la case voisine.
+    voisin_colonne; // La colonne de la case voisine.
 
     /* Initialiser et vérifier l'action demandée au joueur. */
     t_action action = interaction_demander_action(joueur_carburant);
@@ -92,12 +93,8 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
                     direction = jeu_verifier_choix_deplacement(direction);
                 }
 
-                /* Déterminer et valider la case dans la direction choisie. */
-                jeu_calculer_voisin(joueur_ligne,joueur_colonne,direction,&voisin_ligne, &voisin_colonne);
-
                 /* Mettre à jour le positionnement du joueur. */
-                joueur_ligne = voisin_ligne;
-                joueur_colonne = voisin_colonne;
+                jeu_deplacer_joueur(&joueur_ligne,&joueur_colonne,direction);
 
                 /* Mettre à joueur le carburant du joueur et la quantité dans la case du tableau. */
                 jeu_maj_carburant_joueur(joueur_ligne,joueur_colonne,&joueur_carburant,terrain);
@@ -106,20 +103,36 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
                 jeu_etat = jeu_verifier_fin(joueur_ligne,joueur_colonne,joueur_carburant,destination_ligne,
                     destination_colonne);
 
+                break;
+
             /* Traîter l'action d'achat de bonus. */
             case ACTION_ACHETER_BONUS:
-                printf("ok");
 
+                dijkstra_acheter_bonus(terrain,joueur_ligne,joueur_colonne,&joueur_carburant,destination_ligne,
+                    destination_colonne);
+                break;
+
+            /* Traiter l'action de quitter le jeu. */
             case ACTION_QUITTER:
 
+                /* Définir le jeu comme échoué afin de sortir du boucle principal. */
                 jeu_etat = JEU_ETAT_ECHEC;
 
+                break;
+
+            /* Traiter l'option d'un choix d'action invalide. */
             default:
+                break;
+        }
 
-                /* Réinitialiser et vérifier l'action demandée au joueur. */
-                    action = interaction_demander_action(joueur_carburant);
-                    action = interaction_verifier_choix_action(action, joueur_carburant);
+        /* Vérifier si le jeu est toujours en cours que l'action choisie a été traitée et était valide. */
+        if (jeu_etat == JEU_ETAT_EN_COURS && action != ACTION_INVALIDE) {
 
+            /* Afficher le terrain modifié. */
+            terrain_afficher(terrain,&joueur_ligne,&joueur_colonne,destination_ligne,destination_colonne);
+
+            /* Afficher le les options à nouveau à l'utilisateur. */
+            interaction_afficher_option(joueur_carburant);
         }
     }
 }
