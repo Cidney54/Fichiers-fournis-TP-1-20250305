@@ -129,16 +129,28 @@ void jeu_afficher_direction(t_direction direction) {
  * @return DIRECTION_ERRONEE si la chaine ne correspond pas a l'une des 4 directions.
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
-int jeu_verifier_choix_deplacement(int choix) {
+int jeu_verifier_choix_deplacement(char choix[]) {
 
-    // choix = (choix);
-    if (choix != DIRECTION_HAUT && choix != DIRECTION_BAS && choix != DIRECTION_DROITE && choix != DIRECTION_GAUCHE) {
-
-        return DIRECTION_ERRONEE;
+    int etat = DIRECTION_ERRONEE;
+    //si le caractère H est écrit retourne direction haut
+    if (strcmp(choix, "H") == 0) {
+        etat = DIRECTION_HAUT;
     }
-
-    return choix;
+        //si le caractère B est écrit retourne direction bas
+    else if (strcmp(choix, "B") == 0) {
+        etat = DIRECTION_BAS;
+    }
+        //si le caractère D est écrit retourne direction droite
+    else if (strcmp(choix, "D") == 0) {
+        etat = DIRECTION_DROITE;
+    }
+        //si le caractère G est écrit retourne direction gauche
+    else if (strcmp(choix, "G") == 0) {
+        etat = DIRECTION_GAUCHE;
+    }
+    return etat;
 }
+
 // Definir la fonction 'jeu_calculer_voisin' ici
 /**
  * @brief Calcule la position d'un voisin dans une direction donnee.
