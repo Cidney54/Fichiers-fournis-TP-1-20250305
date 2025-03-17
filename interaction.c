@@ -26,9 +26,9 @@ void interaction_presenter_jeu() {
     printf("Les regles du jeu sont les suivantes: \n ");
     printf("\n");
     printf("-vous avez quatre deplacement disponible ( haut, bas, droite, gauche\n");
-    printf("-À chaque deplacement vous perdez un litre de carburant\n");
-    printf("-À chaque deplacement vous avez la posibilite de gagner entre 0 à 9 litre de carburant\n");
-    printf("-Après s'etre deplace d'une case celle-ci est reinitialiser à zero\n");
+    printf("-A chaque deplacement vous perdez un litre de carburant\n");
+    printf("-A chaque deplacement vous avez la posibilite de gagner entre 0 à 9 litre de carburant\n");
+    printf("-Apres s'etre deplace d'une case celle-ci est reinitialiser a zero\n");
     printf("-La partie se termine si une des conditions suivantes est respecte: \n");
     printf("1. Vous avez trouvez la sortie\n");
     printf("2. Vous avez brule tout votre carburant avant d'atteindre la sortie\n");
@@ -105,43 +105,46 @@ int interaction_demander_direction_deplacement() {
     // sert d'outil de comparaison
     int i;
     // initialisation de la valeur retourné
-    int direction = 5;
+    int direction;
+    char choix[2];
 
     //affiche les options de déplacement
-    printf("veuillez choisir une direct: \n");
-    printf("1. droite\n");
-    printf("2. gauche\n");
-    printf("3. haut\n");
-    printf("4. bas\n");
+    printf("veuillez choisir une direction: \n");
+    printf("D.roite\n");
+    printf("G.auche\n");
+    printf("H.aut\n");
+    printf("B.as\n");
+    jeu_verifier_choix_deplacement(choix);
     scanf("%i", &i);
 
     //retourne droite si l'utilisateur choisi 1
-    if (i == 1) {
+    /* if (i == 1) {
 
-        direction = DIRECTION_DROITE;
-    }
-        //retourne gauche si l'utilisateur choisi 2
-    else if (i == 2) {
+         direction = DIRECTION_DROITE;
+     }
+         //retourne gauche si l'utilisateur choisi 2
+     else if (i == 2) {
 
-        direction = DIRECTION_GAUCHE;
-    }
-        //retourne haut si l'utilisateur choisi 3
-    else if (i == 3) {
+         direction = DIRECTION_GAUCHE;
+     }
+         //retourne haut si l'utilisateur choisi 3
+     else if (i == 3) {
 
-        direction = DIRECTION_HAUT;
-    }
-        //retourne bbas si l'utilisateur choisi 4
-    else if (i == 4) {
+         direction = DIRECTION_HAUT;
+     }
+         //retourne bbas si l'utilisateur choisi 4
+     else if (i == 4) {
 
-        direction = DIRECTION_BAS;
-    }
-        //retourne errone si l'utilisateur choisi une valeur autre que 1 à 4
-    else {
+         direction = DIRECTION_BAS;
+     }
+         //retourne errone si l'utilisateur choisi une valeur autre que 1 à 4
+     else {
 
-        direction = DIRECTION_ERRONEE;
-    }
+         direction = DIRECTION_ERRONEE;
+     }
+ */
 
-    return direction;
+    return jeu_verifier_choix_deplacement(choix);
 }
 
 
@@ -162,13 +165,6 @@ void interaction_afficher_victoire(int carburant) {
 
 // Definir la fonction 'interaction_verifier_choix_action' ici
 
-/**
- * @brief Verifie que l'action choisie par le joueur est correcte.
-i * @name interaction_verifier_choix_actionnt main() {
- * @param action l'action choisie par le joueur
- * @param carburant la quantite de carburant du joueur
- * @return action si elle est correcte, ACTION_INVALIDE sinon
-} */
 
 int interaction_verifier_choix_action(int action, int carburant) {
     //initialise le choix d'action
