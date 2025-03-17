@@ -88,7 +88,7 @@ void cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
  * @param courante_colonne la colonne de la position courante a partir de laquelle on regarde les voisins
  */
 //  Ecrire le prototype de la fonction 'maj_voisins' ici
-void maj_voisins(t_couts couts,t_visites visitees,int terrain[NB_LIGNES][NB_COLONNES],t_precedents precedents,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
+void maj_voisins(t_couts couts,t_visites visitees,t_terrain terrain,t_precedents precedents,int courante_ligne,int courante_colonne); // jsp terrain terrain.c ou pas et tableau precedents????
 /**
  * @brief Affiche le tableau des couts
  * @name afficher_couts
@@ -127,7 +127,7 @@ void calculer_chemin_bonus(t_precedents precedents,int depart_ligne, int depart_
  * @return
  */
 //  Ecrire le prototype de la fonction 'dijkstra' ici
-void dijkstra(int terrain [NB_LIGNES][NB_COLONNES] , int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_direction directions);
+void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_direction directions);
 /**
  * @brief Affiche les 4 premieres directions a suivre sur le plus court chemin pour joindre la destination a partir de la position du joueur
  * @name afficher_direction_suggeree
@@ -138,7 +138,7 @@ void dijkstra(int terrain [NB_LIGNES][NB_COLONNES] , int joueur_ligne, int joueu
 
 
 
-void afficher_direction_suggeree(directions[], int nb);
+void afficher_direction_suggeree(t_direction directions, int nb);
 //  ***********************************
 //  Definitions des fonctions publiques
 //  ***********************************
