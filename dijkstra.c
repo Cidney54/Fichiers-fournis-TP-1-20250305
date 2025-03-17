@@ -42,8 +42,8 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne);
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
-//void initialiser_visitees(visitees, case_ligne, case_colonne);
-void initialiser_visitees(t_visites visitees,int case_ligne,int case_colonne);
+
+void initialiser_visitees(t_visites visitees);
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
  * @name est_case_visitee
@@ -180,15 +180,15 @@ void initialiser_couts(t_couts couts,int joueur_ligne, int joueur_colonne) {
 }
 
 // Definir la fonction 'initialiser_visitees' ici
-void initialiser_visitees (t_visites visitees, int case_ligne, int case_colonne){
-  //Initialise toutes les cases comme non visitees
-  for (int i=0; i< NB_LIGNES; i++) {
-      for (int j= 0; j < NB_COLONNES; j++) {
-          visitees[i][j]=false;
+void initialiser_visitees(t_visites visitees) {
+    for (int i = 0; i < NB_LIGNES; i++) {       // Parcourt les lignes 
+        for (int j = 0; j < NB_COLONNES; j++) { // Parcourt les colonnes 
+            visitees[i][j] = 0;                 // Initialise chaque case à non-visité
+        }
     }
-  }
 }
-//parametres case ligne colonne???***************
+
+
 
 // Definir la fonction 'est_case_visitee' ici
 void est_case_visitee(t_visites visitees,int case_ligne,int case_colonne){
