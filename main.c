@@ -90,13 +90,9 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
             /* Initialiser le choix de direction saisit par le joueur. */
             t_direction direction = DIRECTION_ERRONEE;
             char choix = 'X';
-            printf("%c",choix);
-            printf("%d",jeu_verifier_choix_deplacement(choix));
-            printf("%c",choix);
+
             /* Boucle pour saisir la direction tant qu'elle est erronée. */
             while (jeu_verifier_choix_deplacement(choix) == DIRECTION_ERRONEE) {
-
-                printf("%c",choix);
 
                 /* Saisir et valider la direction de déplacement du joueur. */
                 direction = interaction_demander_direction_deplacement();
@@ -114,7 +110,7 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
                     case DIRECTION_GAUCHE:
                         choix = 'G'; break; // Direction vers la gauche.
                     default:
-                        choix = 'Non valide'; break; // Choix qui est non valide.
+                        choix = 'X'; break; // Choix qui est non valide.
                 }
             }
 

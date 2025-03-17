@@ -133,19 +133,19 @@ int jeu_verifier_choix_deplacement(char choix) {
 
     int etat = DIRECTION_ERRONEE;
     //si le caractère H est écrit retourne direction haut
-    if (strcmp(choix, 'H') == 0) {
+    if (choix == 'H') {
         etat = DIRECTION_HAUT;
     }
         //si le caractère B est écrit retourne direction bas
-    else if (strcmp(choix, 'B') == 0) {
+    else if (choix == 'B') {
         etat = DIRECTION_BAS;
     }
         //si le caractère D est écrit retourne direction droite
-    else if (strcmp(choix, 'D') == 0) {
+    else if (choix == 'D') {
         etat = DIRECTION_DROITE;
     }
         //si le caractère G est écrit retourne direction gauche
-    else if (strcmp(choix, 'G') == 0) {
+    else if (choix == 'G') {
         etat = DIRECTION_GAUCHE;
     }
     return etat;

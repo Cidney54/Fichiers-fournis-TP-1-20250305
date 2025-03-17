@@ -102,48 +102,40 @@ int interaction_demander_action(int carburant) {
 // Definir la fonction 'interaction_demander_direction_deplacement' ici
 int interaction_demander_direction_deplacement() {
     // sert d'outil de comparaison
-    int i;
+    char choix;
     // initialisation de la valeur retourné
-    int direction;
-    char choix[2];
 
     //affiche les options de déplacement
-    printf("veuillez choisir une direction: \n");
+    printf("Veuillez choisir une direction: \n");
     printf("D.roite\n");
     printf("G.auche\n");
     printf("H.aut\n");
     printf("B.as\n");
-    jeu_verifier_choix_deplacement(choix);
-    scanf("%i", &i);
+
+    scanf("%c", &choix);
 
     //retourne droite si l'utilisateur choisi 1
-    /* if (i == 1) {
+    if (choix == 'D' || choix == 'd') {
 
-         direction = DIRECTION_DROITE;
+         return DIRECTION_DROITE;
      }
-         //retourne gauche si l'utilisateur choisi 2
-     else if (i == 2) {
+         // retourne gauche si l'utilisateur choisi 2
+     else if (choix == 'G' || choix == 'g') {
 
-         direction = DIRECTION_GAUCHE;
+         return DIRECTION_GAUCHE;
      }
          //retourne haut si l'utilisateur choisi 3
-     else if (i == 3) {
+     else if (choix == 'H' || choix == 'h') {
 
-         direction = DIRECTION_HAUT;
+         return DIRECTION_HAUT;
      }
          //retourne bbas si l'utilisateur choisi 4
-     else if (i == 4) {
+     else if (choix == 'B' || choix == 'b') {
 
-         direction = DIRECTION_BAS;
+         return DIRECTION_BAS;
      }
-         //retourne errone si l'utilisateur choisi une valeur autre que 1 à 4
-     else {
-
-         direction = DIRECTION_ERRONEE;
-     }
- */
-
-    return jeu_verifier_choix_deplacement(choix);
+    //retourne errone si l'utilisateur choisi une valeur autre que 1 à 4
+    return DIRECTION_ERRONEE;
 }
 
 
