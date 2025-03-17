@@ -60,7 +60,7 @@ void interaction_afficher_option(int carburant) {
 
 
 // Definir la fonction 'interaction_demander_action' ici
-int interacion_demander_action(int carburant) {
+int interaction_demander_action(int carburant) {
     int i;
     int action = 0;
 

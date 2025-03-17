@@ -1,5 +1,5 @@
 
-#include "dijkstra.h"
+//#include "dijkstra.h"
 #include "interaction.h"
 #include "jeu.h"
 #include "stdio.h"
@@ -132,8 +132,10 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
             /* Traîter l'action d'achat de bonus. */
             case ACTION_ACHETER_BONUS:
 
+                /*
                 dijkstra_acheter_bonus(terrain,joueur_ligne,joueur_colonne,&joueur_carburant,destination_ligne,
                     destination_colonne);
+                    */
                 break;
 
             /* Traiter l'action de quitter le jeu. */
