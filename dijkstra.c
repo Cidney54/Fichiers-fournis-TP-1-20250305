@@ -322,8 +322,15 @@ void afficher_couts(t_couts couts,t_visites visitees, int joueur_ligne, int joue
 
 
 // Definir la fonction 'calculer_chemin_bonus' ici
-void calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, t_direction directions);
-          
+void calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, t_direction directions) {
+//art a 4???????????????????????*********** do while?
+int i = 0;
+ while(depart_ligne != destination_ligne && depart_colonne != destination_colonne) {
+          if (precedents == 0
+
+
+
+          i++
 
 // Definir la fonction 'dijkstra' ici
 
