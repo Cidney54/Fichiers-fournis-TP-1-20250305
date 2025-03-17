@@ -63,11 +63,11 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
 
     /* Initialiser les variables. */
     int sortie_ligne; // Ligne de destination de sortie.
-    int sortie_colonne; // Colonne de desitination de sortie.
+    int sortie_colonne; // Colonne de destination de sortie.
     int depart_ligne; // Ligne de départ du joueur.
     int depart_colonne; // Colonne de départ du joueur.
 
-    /* Générer les stations de carburant sur le terrrain. */
+    /* Générer les stations de carburant sur le terrain. */
     terrain_creer_stations_carburant(terrain, TOTAL_CARBURANT_NIVEAU_1);
 
     /* Boucle afin d'assurer que la sortie ne se retrouve pas sur une station de carburant. */
