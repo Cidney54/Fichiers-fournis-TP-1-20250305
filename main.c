@@ -85,78 +85,69 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
         }
 
         /* Traiter les actions demandées par le joueur. */
-        switch (action) {
+        if (action == ACTION_DEPLACER) {
 
-            /* Traiter l'action de déplacement. */
-            case ACTION_DEPLACER:
+            /* Initialiser le choix de direction saisit par le joueur. */
+            t_direction direction = DIRECTION_ERRONEE;
+            char choix = 'X';
+            printf("%c",choix);
+            printf("%d",jeu_verifier_choix_deplacement(choix));
+            printf("%c",choix);
+            /* Boucle pour saisir la direction tant qu'elle est erronée. */
+            while (jeu_verifier_choix_deplacement(choix) == DIRECTION_ERRONEE) {
 
-                /* Initialiser le choix de direction saisit par le joueur. */
-                t_direction direction = DIRECTION_ERRONEE;
-                char choix = "Aucun";
+                printf("%c",choix);
 
-                /* Boucle pour saisir la direction tant qu'elle est erronée. */
-                while (jeu_verifier_choix_deplacement(choix) == DIRECTION_ERRONEE) {
+                /* Saisir et valider la direction de déplacement du joueur. */
+                direction = interaction_demander_direction_deplacement();
 
-                    /* Saisir et valider la direction de déplacement du joueur. */
-                    direction = interaction_demander_direction_deplacement();
+                /* Vérifier quelle direction a été choisie par l'utilisateur. */
+                /* Transformer en chaîne de caractère pour valider le choix selon les paramètres de la fonction. */
+                switch (direction) {
 
-                    /* Vérifier quelle direction a été choisie par l'utilisateur. */
-                    /* Transformer en chaîne de caractère pour valider le choix selon les paramètres de la fonction. */
-                    switch (direction) {
-
-                        case DIRECTION_BAS:
-                            choix = "B"; break; // Direction vers le bas.
-                        case DIRECTION_HAUT:
-                            choix = "H"; break; // Direction vers le haut.
-                        case DIRECTION_DROITE:
-                            choix = "D"; break; // Direction vers la droite.
-                        case DIRECTION_GAUCHE:
-                            choix  = "G"; break; // Direction vers la gauche.
-                        default:
-                            choix = "Non valide"; break; // Choix qui est non valide.
-                    }
+                    case DIRECTION_BAS:
+                        choix = 'B'; break; // Direction vers le bas.
+                    case DIRECTION_HAUT:
+                        choix = 'H'; break; // Direction vers le haut.
+                    case DIRECTION_DROITE:
+                        choix = 'D'; break; // Direction vers la droite.
+                    case DIRECTION_GAUCHE:
+                        choix = 'G'; break; // Direction vers la gauche.
+                    default:
+                        choix = 'Non valide'; break; // Choix qui est non valide.
                 }
+            }
 
-                /* Déterminer la case dans la direction de déplacement */
-                jeu_calculer_voisin(joueur_ligne,joueur_colonne,direction,&voisin_ligne,&voisin_colonne);
+            /* Déterminer la case dans la direction de déplacement */
+            jeu_calculer_voisin(joueur_ligne,joueur_colonne,direction,&voisin_ligne,&voisin_colonne);
 
-                /* Vérifier si la case est contenu dans le terrain. */
-                if (terrain_contient(voisin_ligne,voisin_colonne)) {
+            /* Vérifier si la case est contenu dans le terrain. */
+            if (terrain_contient(voisin_ligne,voisin_colonne)) {
 
-                    /* Mettre à jour le positionnement du joueur. */
-                    jeu_deplacer_joueur(&joueur_ligne,&joueur_colonne,direction);
+                /* Mettre à jour le positionnement du joueur. */
+                jeu_deplacer_joueur(&joueur_ligne,&joueur_colonne,direction);
 
-                    /* Mettre à joueur le carburant du joueur et la quantité dans la case du tableau. */
-                    jeu_maj_carburant_joueur(joueur_ligne,joueur_colonne,&joueur_carburant,terrain);
+                /* Mettre à joueur le carburant du joueur et la quantité dans la case du tableau. */
+                jeu_maj_carburant_joueur(joueur_ligne,joueur_colonne,&joueur_carburant,terrain);
 
-                    /* Vérifier si le joueur est rendu à la destination de fin du jeu. */
-                    jeu_etat = jeu_verifier_fin(joueur_ligne,joueur_colonne,joueur_carburant,destination_ligne,
-                        destination_colonne);
-
-                }
-
-                break;
-
-            /* Traîter l'action d'achat de bonus. */
-            case ACTION_ACHETER_BONUS:
-
-                /*
-                dijkstra_acheter_bonus(terrain,joueur_ligne,joueur_colonne,&joueur_carburant,destination_ligne,
+                /* Vérifier si le joueur est rendu à la destination de fin du jeu. */
+                jeu_etat = jeu_verifier_fin(joueur_ligne,joueur_colonne,joueur_carburant,destination_ligne,
                     destination_colonne);
-                    */
-                break;
+
+            }
+        }
+        /* Traîter l'action d'achat de bonus. */
+        else if (action == ACTION_ACHETER_BONUS) {
+            /*
+            dijkstra_acheter_bonus(terrain,joueur_ligne,joueur_colonne,&joueur_carburant,destination_ligne,
+                destination_colonne);
+                */
+        }
 
             /* Traiter l'action de quitter le jeu. */
-            case ACTION_QUITTER:
-
-                /* Définir le jeu comme échoué afin de sortir du boucle principal. */
-                jeu_etat = JEU_ETAT_ECHEC;
-
-                break;
-
-            /* Traiter l'option d'un choix d'action invalide. */
-            default:
-                break;
+        else if (action == ACTION_QUITTER) {
+            /* Définir le jeu comme échoué afin de sortir de la boucle principal. */
+            jeu_etat = JEU_ETAT_ECHEC;
         }
 
         /* Vérifier si le jeu est toujours en cours que l'action choisie a été traitée et était valide. */

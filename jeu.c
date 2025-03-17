@@ -88,7 +88,7 @@ void jeu_init(t_terrain terrain, int *joueur_ligne, int *joueur_colonne, int *jo
     *destination_colonne = depart_colonne;
 
     /* Afficher le terrain à l'utilisateur. */
-    terrain_afficher(terrain, joueur_ligne, joueur_ligne, *destination_ligne, *destination_colonne);
+    terrain_afficher(terrain, joueur_ligne, joueur_colonne, *destination_ligne, *destination_colonne);
 
     /* Afficher les options et le carburant disponible à l'utilisateur. */
     interaction_afficher_option(*joueur_carburant);
@@ -129,23 +129,23 @@ void jeu_afficher_direction(t_direction direction) {
  * @return DIRECTION_ERRONEE si la chaine ne correspond pas a l'une des 4 directions.
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
-int jeu_verifier_choix_deplacement(char choix[]) {
+int jeu_verifier_choix_deplacement(char choix) {
 
     int etat = DIRECTION_ERRONEE;
     //si le caractère H est écrit retourne direction haut
-    if (strcmp(choix, "H") == 0) {
+    if (strcmp(choix, 'H') == 0) {
         etat = DIRECTION_HAUT;
     }
         //si le caractère B est écrit retourne direction bas
-    else if (strcmp(choix, "B") == 0) {
+    else if (strcmp(choix, 'B') == 0) {
         etat = DIRECTION_BAS;
     }
         //si le caractère D est écrit retourne direction droite
-    else if (strcmp(choix, "D") == 0) {
+    else if (strcmp(choix, 'D') == 0) {
         etat = DIRECTION_DROITE;
     }
         //si le caractère G est écrit retourne direction gauche
-    else if (strcmp(choix, "G") == 0) {
+    else if (strcmp(choix, 'G') == 0) {
         etat = DIRECTION_GAUCHE;
     }
     return etat;

@@ -52,7 +52,7 @@ void interaction_afficher_option(int carburant) {
     if (carburant >= 10) {
         printf("2.Acheter bonus\n");
     }
-    couleur_reset();
+    //couleur_reset();
     printf("3.Quitter\n");
 
 
