@@ -129,7 +129,7 @@ void jeu_afficher_direction(t_direction direction) {
  * @return DIRECTION_ERRONEE si la chaine ne correspond pas a l'une des 4 directions.
  * Sinon, retourne DIRECTION_HAUT ou DIRECTION_BAS ou DIRECTION_DROITE ou DIRECTION_GAUCHE selon la direction choisie
  */
-int jeu_verifier_choix_deplacement(char choix) {
+int jeu_verifier_choix_deplacement(char choix[]) {
 
     int etat = DIRECTION_ERRONEE;
     //si le caractère H est écrit retourne direction haut
