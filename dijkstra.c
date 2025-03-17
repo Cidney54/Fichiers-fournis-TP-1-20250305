@@ -247,7 +247,7 @@ void maj_voisins(t_couts couts,t_visites visitees,t_terrain terrain,t_precedents
         }
 
         // Verifie que les voisins sont dans dans la zone permise
-           if (terrain_contient(voisin_ligne,voisin_colonne)) {
+            if (terrain_contient(voisin_ligne,voisin_colonne)) {
             // Verifie que les voisins n'ont pas ete visites
             if (visitees[voisin_ligne][voisin_colonne] == 0) {
                 // calcule le cout pour aller au voisin (depend du terrain)
