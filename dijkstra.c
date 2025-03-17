@@ -218,7 +218,7 @@ void cout_deplacement(int terrain[NB_LIGNES][NB_COLONNES], t_couts couts, int vo
 // Definir la fonction 'maj_voisins' ici
 void maj_voisins(t_couts couts,t_visites visitees,t_terrain terrain,t_precedents precedents,int courante_ligne,int courante_colonne){
   
-    int voisin_ligne,
+    int voisin_ligne;
     voisin_colonne;
 
     for (int i = 0; i < 4; i++) {
