@@ -45,7 +45,7 @@ void interaction_afficher_option(int carburant) {
     printf("1.Deplacer\n");
     /* affiche l'option acheter bonus en gris si le carburant est inférieur à 10 */
     if (carburant < 10) {
-        couleur_set(0, 90, 40);
+        //couleur_set(0, 90, 40);
         printf("2.Acheter bonus\n");
     }
     /* affiche l'option acheter bonus normalement si le carburant est supérieur  ou égal à 10 */
@@ -66,7 +66,6 @@ int interaction_demander_action(int carburant) {
 
     do {
         // demande à l'utilisateur l'option qu'il choisit
-        interaction_afficher_option(carburant);
         printf("Veuillez choisir une option: \n");
         scanf("%d", &i);
 
