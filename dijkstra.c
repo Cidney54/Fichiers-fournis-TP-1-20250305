@@ -299,7 +299,7 @@ void afficher_direction_suggeree(t_direction directions, int nb) {
       for (int i = 0; i < NB_LIGNES; i++) {
           for (int j = 0; j < NB_COLONNES; j++)
             // for (int i = 0; i < 4; i++) {
-                if (t_direction[i] == 2) {                //t_direction???
+                if (t_direction[i] == DIRECTION_HAUT) {                //t_direction???
                     printf("Haut ");
                 } else if (t_direction == 1) {
                     printf("Bas ");
