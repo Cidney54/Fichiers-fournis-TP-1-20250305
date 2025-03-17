@@ -301,11 +301,11 @@ void afficher_direction_suggeree(t_direction directions, int nb) {
             // for (int i = 0; i < 4; i++) {
                 if (t_direction[i] == DIRECTION_HAUT) {                //t_direction???
                     printf("Haut ");
-                } else if (t_direction == 1) {
+                } else if (t_direction == DIRECTION_BAS) {
                     printf("Bas ");
-                } else if (t_direction[i] == 3) {
+                } else if (t_direction[i] == DIRECTION_GAUCHE) {
                     printf("Gauche ");
-                } else if (t_direction[i] == 0) {
+                } else if (t_direction[i] == DIRECTION_DROITE) {
                     printf("Droite ");
                 }
             }
