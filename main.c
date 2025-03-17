@@ -82,15 +82,31 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
             /* Traiter l'action de déplacement. */
             case ACTION_DEPLACER:
 
-                /* Initialiser la validation de la direction saisit par le joueur. */
+                /* Initialiser le choix de direction saisit par le joueur. */
                 t_direction direction = DIRECTION_ERRONEE;
+                char choix = "Aucun";
 
                 /* Boucle pour saisir la direction tant qu'elle est erronée. */
-                while (direction == DIRECTION_ERRONEE) {
+                while (jeu_verifier_choix_deplacement(choix) == DIRECTION_ERRONEE) {
 
                     /* Saisir et valider la direction de déplacement du joueur. */
                     direction = interaction_demander_direction_deplacement();
-                    direction = jeu_verifier_choix_deplacement(direction);
+
+                    /* Vérifier quelle direction a été choisie par l'utilisateur. */
+                    /* Transformer en chaîne de caractère pour valider le choix selon les paramètres de la fonction. */
+                    switch (direction) {
+
+                        case DIRECTION_BAS:
+                            choix = "B"; break; // Direction vers le bas.
+                        case DIRECTION_HAUT:
+                            choix = "H"; break; // Direction vers le haut.
+                        case DIRECTION_DROITE:
+                            choix = "D"; break; // Direction vers la droite.
+                        case DIRECTION_GAUCHE:
+                            choix  = "G"; break; // Direction vers la gauche.
+                        default:
+                            choix = "Non valide"; break; // Choix qui est non valide.
+                    }
                 }
 
                 /* Déterminer la case dans la direction de déplacement */
