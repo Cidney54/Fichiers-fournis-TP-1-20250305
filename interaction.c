@@ -20,18 +20,18 @@
 void interaction_presenter_jeu() {
 
     printf("Bienvenue dans le jeu\n");
-    printf("Dans ce jeu vous serez dans un véhicule contenant 2 litres de carburant initialement\n ");
-    printf("vous allez être projeté dans un labyrinth composé de cases et vous aurez pour but de trouver la sortie\n ");
-    printf("Votre position sera affiché par un signe X\n");
-    printf("Les règles du jeu sont les suivantes: \n ");
+    printf("Dans ce jeu vous serez dans un vehicule contenant 2 litres de carburant initialement\n ");
+    printf("vous allez etre projete dans un labyrinth compose de cases et vous aurez pour but de trouver la sortie\n ");
+    printf("Votre position sera affiche par un signe X\n");
+    printf("Les regles du jeu sont les suivantes: \n ");
     printf("\n");
-    printf("-vous avez quatre déplacement disponible ( haut, bas, droite, gauche\n");
-    printf("-À chaque déplacement vous perdez un litre de carburant\n");
-    printf("-À chaque déplacement vous avez la posibilité de gagner entre 0 à 9 litre de carburant\n");
-    printf("-Après s'être déplacé d'une case celle-ci est réinitialiser à zéro\n");
-    printf("-La partie se termine si une des conditions suivantes est respecté: \n");
+    printf("-vous avez quatre deplacement disponible ( haut, bas, droite, gauche\n");
+    printf("-À chaque deplacement vous perdez un litre de carburant\n");
+    printf("-À chaque deplacement vous avez la posibilite de gagner entre 0 à 9 litre de carburant\n");
+    printf("-Après s'etre deplace d'une case celle-ci est reinitialiser à zero\n");
+    printf("-La partie se termine si une des conditions suivantes est respecte: \n");
     printf("1. Vous avez trouvez la sortie\n");
-    printf("2. Vous avez brulé tout votre carburant avant d'atteindre la sortie\n");
+    printf("2. Vous avez brule tout votre carburant avant d'atteindre la sortie\n");
 
 
 }
@@ -42,7 +42,7 @@ void interaction_afficher_option(int carburant) {
 
     /* affichage des options  */
     printf("Voici vos options: \n");
-    printf("1.Déplacer\n");
+    printf("1.Deplacer\n");
     /* affiche l'option acheter bonus en gris si le carburant est inférieur à 10 */
     if (carburant < 10) {
         couleur_set(0, 90, 40);
@@ -73,7 +73,7 @@ int interacion_demander_action(int carburant) {
         // s'il choisit 1, cela affiche déplacement
         if (i == 1) {
             action = ACTION_DEPLACER;
-            printf("déplacement\n");
+            printf("deplacement\n");
 
         }
             // s'il choisit 2, cela affiche achat bonus
@@ -155,7 +155,7 @@ void interaction_affiche_echec() {
 
 void interaction_afficher_victoire(int carburant) {
     //affiche que le joueur a gagné suivi de son niveau de carburant
-    printf("vous avez gagné\n");
+    printf("vous avez gagne\n");
     printf("il vous reste %i litre de carburant\n", carburant);
 }
 
@@ -187,7 +187,7 @@ int interaction_verifier_choix_action(int action, int carburant) {
         printf("quitte\n");
         choix_action = ACTION_QUITTER;
     } else {
-        printf("erroné\n");
+        printf("errone\n");
         choix_action = ACTION_INVALIDE;
     }
 
