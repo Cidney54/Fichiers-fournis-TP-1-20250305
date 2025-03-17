@@ -1,3 +1,10 @@
+/**********************************************************************************************************************
+ * Fichier : jeu_carburant
+ * Auteur : William Brundl, Cidney Petit-Saint, Leticia Saadé et Élisée Jean Tape.
+ * Date : 16/03/2025
+ * Description : Ceci est un programme qui simule un jeu sur lequel un véhicule se déplace et doit gérer sa quantité de
+ * carburant afin d'atteindre une position de sortie pour terminer le jeu.
+**********************************************************************************************************************/
 
 #include "dijkstra.h"
 #include "interaction.h"
