@@ -3,7 +3,7 @@
 //
 
 #include <stdio.h>
-#include <couleur.h>
+//#include <couleur.h>
 #include "terrain.h"
 #include <stdbool.h>
 #include "util.h"
@@ -153,34 +153,34 @@ void terrain_afficher(t_terrain terrain, int *courante_ligne, int *courante_colo
             /* Vérifier si la ligne agit d'une ligne de séparation ou de valeurs du tableau. */
             if (i % 2 != 0) {
 
-                couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des lignes de séparation.
+                //couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des lignes de séparation.
 
                 printf("+---"); // Afficher les caractères pour la ligne de séparation.
             } else {
 
                 if (i / 2 == *courante_ligne && j == *courante_colonne) {
 
-                    couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des colonnes de séparation.
+                    //couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des colonnes de séparation.
 
                     printf("|");
 
-                    couleur_set(STYLE_BOLD,FG_GREEN,BG_BLACK); // Changer la couleur de la case du joueur.
-
-                    printf(" %d ",terrain_get_carburant(terrain,*courante_ligne,*courante_colonne));
+                    //couleur_set(STYLE_BOLD,FG_GREEN,BG_BLACK); // Changer la couleur de la case du joueur.
+                    printf(" X ");
+                    //printf(" %d ",terrain_get_carburant(terrain,*courante_ligne,*courante_colonne));
 
                 } else if (i / 2 == destination_ligne && j == destination_colonne) {
 
-                    couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des colonnes de séparation.
+                    //couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des colonnes de séparation.
 
                     printf("|");
 
-                    couleur_set(STYLE_BOLD,FG_RED,BG_BLACK); // Changer la couleur de la case destination.
-
-                    printf(" %d ",terrain_get_carburant(terrain,destination_ligne,destination_colonne));
+                    //couleur_set(STYLE_BOLD,FG_RED,BG_BLACK); // Changer la couleur de la case destination.
+                    printf(" S ");
+                    //printf(" %d ",terrain_get_carburant(terrain,destination_ligne,destination_colonne));
 
                 } else {
 
-                    couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des autres cases.
+                    //couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des autres cases.
 
                     printf("| %d ", terrain[i / 2][j]); // Afficher la valeur correspondante du tableau.
                 }
@@ -192,17 +192,17 @@ void terrain_afficher(t_terrain terrain, int *courante_ligne, int *courante_colo
         /* Vérifier si la ligne agit d'une ligne de séparation ou de valeurs du tableau. */
         if (i % 2 != 0) {
 
-            couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK);
+            //couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK);
 
             printf("+\n"); // Effectuer un retour à la prochaine ligne de valeurs du tableau.
         } else {
 
-            couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des autres cases.
+            //couleur_set(STYLE_BOLD,FG_WHITE,BG_BLACK); // Changer la couleur des autres cases.
 
             printf("|\n"); // Effectuer un retour à la prochaine ligne de séparation.
         }
     }
 
     /* Réinitialiser les paramètres de couleur pour l'affichage. */
-    couleur_reset();
+    //couleur_reset();
 }
