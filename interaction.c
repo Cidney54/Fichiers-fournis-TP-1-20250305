@@ -168,22 +168,16 @@ void interaction_afficher_victoire(int carburant) {
 
 int interaction_verifier_choix_action(int action, int carburant) {
     //initialise le choix d'action
-    int choix_action = 0;
-    //demande à l'utilisateur son choix
-    scanf("%i", &action);
 
+    int choix_action;
 
     if (action == ACTION_DEPLACER) {
-        printf("deplacement\n");
         choix_action = ACTION_DEPLACER;
     } else if (action == ACTION_ACHETER_BONUS) {
-        printf("achat bonus\n");
         choix_action = ACTION_ACHETER_BONUS;
     } else if (action == ACTION_QUITTER) {
-        printf("quitte\n");
         choix_action = ACTION_QUITTER;
     } else {
-        printf("errone\n");
         choix_action = ACTION_INVALIDE;
     }
 

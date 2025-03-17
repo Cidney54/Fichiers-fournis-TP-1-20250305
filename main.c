@@ -69,12 +69,20 @@ void jeu_executer(t_terrain terrain, int joueur_ligne, int joueur_colonne, int j
     int voisin_ligne, // La ligne de la case voisine.
     voisin_colonne; // La colonne de la case voisine.
 
-    /* Initialiser et vérifier l'action demandée au joueur. */
-    t_action action = interaction_demander_action(joueur_carburant);
-    action = interaction_verifier_choix_action(action, joueur_carburant);
+    printf("%d",jeu_etat);
 
     /* Boucle pour exécuter les parties du jeu jusqu'à sa fin. */
     while (jeu_etat == JEU_ETAT_EN_COURS) {
+
+        /* Initialiser et vérifier l'action demandée au joueur. */
+        t_action action = interaction_demander_action(joueur_carburant);
+        int action_verifiee = interaction_verifier_choix_action(action, joueur_carburant);
+
+        while (action_verifiee == ACTION_INVALIDE) {
+
+            action = interaction_demander_action(joueur_carburant);
+            action_verifiee = interaction_verifier_choix_action(action, joueur_carburant);
+        }
 
         /* Traiter les actions demandées par le joueur. */
         switch (action) {
